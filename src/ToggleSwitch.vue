@@ -147,13 +147,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/*
-.toggle-switch input[type="radio"]:checked + label,
-.Checked + label {
-  background:#007aff;
-  color: white;
-}
-*/
 ul {
   list-style: none;
 }

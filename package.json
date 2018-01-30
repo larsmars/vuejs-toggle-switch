@@ -1,8 +1,10 @@
 {
   "name": "vuejs-toggle-switch",
   "description": "A toggle switch component for Vue.js 2+",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "LMH, hejlllars@hotmail.com , softwarefun.no",
+  "license": "MIT",
+  "homepage": "https://github.com/larsmars/vuejs-toggle-switch#readme",
   "private": false,
   "scripts": {
     "build:client": "webpack --config ./webpack.config.js --progress --hide-modules",

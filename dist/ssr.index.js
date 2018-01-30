@@ -123,7 +123,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-const constants = {
+var constants = {
   color: 'black',
   backgroundColor: 'white',
   selectedColor: 'white',
@@ -136,7 +136,9 @@ const constants = {
   width: 100
 };
 
-const px = v => v + 'px';
+var px = function px(v) {
+  return v + 'px';
+};
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ToggleSwitch',
@@ -198,13 +200,13 @@ const px = v => v + 'px';
     }
   },
   computed: {
-    switchStyle() {
+    switchStyle: function switchStyle() {
       return {
         width: px(this.width),
         height: px(this.height)
       };
     },
-    itemStyle() {
+    itemStyle: function itemStyle() {
       return {
         height: px(this.height),
         width: px(this.width),
@@ -213,7 +215,7 @@ const px = v => v + 'px';
         textAlign: 'center'
       };
     },
-    labelStyle() {
+    labelStyle: function labelStyle() {
       return {
         padding: px(this.padding),
         borderColor: this.borderColor,
@@ -221,7 +223,7 @@ const px = v => v + 'px';
         color: this.color
       };
     },
-    labelStyleSelected() {
+    labelStyleSelected: function labelStyleSelected() {
       return {
         padding: px(this.padding),
         borderColor: this.borderColor,
@@ -230,20 +232,21 @@ const px = v => v + 'px';
       };
     }
   },
-  data() {
+  data: function data() {
     return {
       selected: !!this.value,
       selectedItem: 'unknown',
       defaultItem: this.preSelected
     };
   },
-  mounted() {
+  mounted: function mounted() {
     if (this.defaultItem !== 'unknown') {
       this.selectedItem = this.defaultItem;
     }
   },
+
   methods: {
-    toggle(event) {
+    toggle: function toggle(event) {
       if (!this.disabled) {
         this.selected = true;
         this.selectedItem = event.target.id, this.$emit('input', this.selected);
@@ -269,8 +272,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const plugin = {
-  install(Vue, options) {
+var plugin = {
+  install: function install(Vue, options) {
     Vue.component('ToggleSwitch', __WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue___default.a);
   }
 };
