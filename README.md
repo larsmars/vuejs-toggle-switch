@@ -1,6 +1,8 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js 2+
-![demo image](https://github.com/larsmars/vuejs-toggle-switch/blob/master/demo/src/assets/demo_img.png | width=48)
+![demo image](https://github.com/larsmars/vuejs-toggle-switch/blob/master/demo/src/assets/demo_img.png)
+
+<img src="https://github.com/larsmars/vuejs-toggle-switch/blob/master/demo/src/assets/demo_img.png" width="48">
 
 [Live demo](http://softwarefun.no/#/toggleswitch)
 
