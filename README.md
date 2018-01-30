@@ -31,17 +31,17 @@ Use: (in your local .vue file/component, html section)
 | ---       | ---               | ---         | ---                                |
 | width     | Number           | 100       | Width of item|
 | height      | Number           | 34       | Height |
-| padding     | Number           | 7       | padding |
+| padding     | Number           | 7       | adjust text location with this |
 | backgroundColor      | String           | white       | background color |
 | color     | String           | black       | text color|
 | borderColor      | String  | #007aff | border color |
 | selectedColor     | String           | white     | text color selected item |
 | selectedBackgroundColor      | String           | #007aff       | selected item background color |
-| fontFamily     | String           | Lucida Grande       | font of item text |
+| fontFamily     | String           | n/a  | font of item text |
 | fontSize      | Number           | 14     | text size |
 | disabled     | Boolean           | false       | disable switch |
 | preSelected     | String           | unknown       | set pre selected item |
-| labels     | [String, Object]           | n/A       | disable switch |
+| labels     | [String, Object]           | n/a       | disable switch |
 
 ### Events
 

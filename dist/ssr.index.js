@@ -129,7 +129,6 @@ var constants = {
   selectedColor: 'white',
   selectedBackgroundColor: '#007aff',
   borderColor: '#007aff',
-  fontFamily: '"Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif',
   fontSize: 14,
   height: 34,
   padding: 7,
@@ -180,8 +179,7 @@ var px = function px(v) {
       default: constants.selectedBackgroundColor
     },
     fontFamily: {
-      type: String,
-      default: constants.fontFamily
+      type: String
     },
     fontSize: {
       type: Number,

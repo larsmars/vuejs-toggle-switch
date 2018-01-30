@@ -23,8 +23,8 @@
         preSelected="Map"
         :labels="{map: 'Map', transit: 'Transit', satellite: 'Satellite'}"
         :width="380"
-        height="24"
-        padding="2"
+        :height=24
+        :padding=2
         @change="value2 = $event.value"
         v-model="selected2"/>
       <br>
