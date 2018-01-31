@@ -143,8 +143,7 @@ var px = function px(v) {
   name: 'ToggleSwitch',
   props: {
     value: {
-      type: Boolean,
-      default: false
+      type: String
     },
     height: {
       type: Number,
@@ -198,13 +197,13 @@ var px = function px(v) {
     }
   },
   computed: {
-    switchStyle: function switchStyle() {
+    switchStyle() {
       return {
         width: px(this.width),
         height: px(this.height)
       };
     },
-    itemStyle: function itemStyle() {
+    itemStyle() {
       return {
         height: px(this.height),
         width: px(this.width),
@@ -213,7 +212,7 @@ var px = function px(v) {
         textAlign: 'center'
       };
     },
-    labelStyle: function labelStyle() {
+    labelStyle() {
       return {
         padding: px(this.padding),
         borderColor: this.borderColor,
@@ -221,7 +220,7 @@ var px = function px(v) {
         color: this.color
       };
     },
-    labelStyleSelected: function labelStyleSelected() {
+    labelStyleSelected() {
       return {
         padding: px(this.padding),
         borderColor: this.borderColor,
@@ -230,24 +229,28 @@ var px = function px(v) {
       };
     }
   },
-  data: function data() {
+  data() {
     return {
-      selected: !!this.value,
-      selectedItem: 'unknown',
-      defaultItem: this.preSelected
+      selected: false,
+      selectedItem: 'unknown'
     };
   },
-  mounted: function mounted() {
-    if (this.defaultItem !== 'unknown') {
-      this.selectedItem = this.defaultItem;
+  mounted() {
+    if (this.preSelected !== 'unknown') {
+      this.selectedItem = this.preSelected;
     }
   },
-
+  watch: {
+    value: function (val) {
+      this.selectedItem = val;
+    }
+  },
   methods: {
-    toggle: function toggle(event) {
+    toggle(event) {
       if (!this.disabled) {
         this.selected = true;
-        this.selectedItem = event.target.id, this.$emit('input', this.selected);
+        this.selectedItem = event.target.id, this.$emit('selected', this.selected);
+        this.$emit('input', this.selectedItem);
         this.$emit('change', {
           value: event.target.id,
           srcEvent: event
@@ -270,8 +273,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var plugin = {
-  install: function install(Vue, options) {
+const plugin = {
+  install(Vue, options) {
     Vue.component('ToggleSwitch', __WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue___default.a);
   }
 };

@@ -29,8 +29,7 @@ export default {
   name: 'ToggleSwitch',
   props: {
     value: {
-      type: Boolean,
-      default: false
+      type: String
     },
     height: {
       type: Number,
@@ -118,14 +117,18 @@ export default {
   },
   data () {
     return {
-      selected: !!this.value,
+      selected: false,
       selectedItem: 'unknown',
-      defaultItem: this.preSelected
     }
   },
   mounted () {
-    if (this.defaultItem !== 'unknown') {
-      this.selectedItem = this.defaultItem
+    if (this.preSelected !== 'unknown') {
+      this.selectedItem = this.preSelected
+    }
+  },
+  watch: {
+    value: function (val) {
+      this.selectedItem = val
     }
   },
   methods: {
@@ -133,7 +136,8 @@ export default {
       if (!this.disabled) {
         this.selected = true
         this.selectedItem = event.target.id,
-        this.$emit('input', this.selected)
+        this.$emit('selected', this.selected)
+        this.$emit('input', this.selectedItem)
         this.$emit('change', {
           value: event.target.id,
           srcEvent: event

@@ -21,11 +21,12 @@ Use: (in your local .vue file/component, html section)
 ```xml
 
       <toggle-switch
-        preSelected="Map"
         :labels="{map: 'Map', transit: 'Transit', satellite: 'Satellite'}"
         :width="380"
         :height="24"
-        :padding="2"/>
+        :padding="2"
+        @change="updateMap($event.value)" // This is optional
+        v-model="selectedMapOption"/> // This is optional
 ```
 
 ### Properties
@@ -43,12 +44,14 @@ Use: (in your local .vue file/component, html section)
 | fontFamily     | String           | n/a  | font of item text |
 | fontSize      | Number           | 14     | text size |
 | disabled     | Boolean           | false       | disable switch |
-| preSelected     | String           | unknown       | set pre selected item |
+| preSelected     | String           | unknown       | set (pre) selected label, should not be used in combination with v-model |
 | labels     | [String, Object]           | n/a       | disable switch |
+| value     | String          | n/a       | value |
 
 ### Events
 
 | Name   | Description              |
 | ---    | ---                      |
 | change | Triggered whenever state of the component/switch changes, @change="vmValueItem = $event.value" |
+| selected | Whenever selected|
 

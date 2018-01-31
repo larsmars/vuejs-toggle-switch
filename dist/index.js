@@ -143,8 +143,7 @@ var px = function px(v) {
   name: 'ToggleSwitch',
   props: {
     value: {
-      type: Boolean,
-      default: false
+      type: String
     },
     height: {
       type: Number,
@@ -232,22 +231,26 @@ var px = function px(v) {
   },
   data: function data() {
     return {
-      selected: !!this.value,
-      selectedItem: 'unknown',
-      defaultItem: this.preSelected
+      selected: false,
+      selectedItem: 'unknown'
     };
   },
   mounted: function mounted() {
-    if (this.defaultItem !== 'unknown') {
-      this.selectedItem = this.defaultItem;
+    if (this.preSelected !== 'unknown') {
+      this.selectedItem = this.preSelected;
     }
   },
-
+  watch: {
+    value: function value(val) {
+      this.selectedItem = val;
+    }
+  },
   methods: {
     toggle: function toggle(event) {
       if (!this.disabled) {
         this.selected = true;
-        this.selectedItem = event.target.id, this.$emit('input', this.selected);
+        this.selectedItem = event.target.id, this.$emit('selected', this.selected);
+        this.$emit('input', this.selectedItem);
         this.$emit('change', {
           value: event.target.id,
           srcEvent: event
