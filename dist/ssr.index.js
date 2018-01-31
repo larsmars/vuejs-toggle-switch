@@ -197,13 +197,13 @@ var px = function px(v) {
     }
   },
   computed: {
-    switchStyle() {
+    switchStyle: function switchStyle() {
       return {
         width: px(this.width),
         height: px(this.height)
       };
     },
-    itemStyle() {
+    itemStyle: function itemStyle() {
       return {
         height: px(this.height),
         width: px(this.width),
@@ -212,7 +212,7 @@ var px = function px(v) {
         textAlign: 'center'
       };
     },
-    labelStyle() {
+    labelStyle: function labelStyle() {
       return {
         padding: px(this.padding),
         borderColor: this.borderColor,
@@ -220,7 +220,7 @@ var px = function px(v) {
         color: this.color
       };
     },
-    labelStyleSelected() {
+    labelStyleSelected: function labelStyleSelected() {
       return {
         padding: px(this.padding),
         borderColor: this.borderColor,
@@ -229,24 +229,25 @@ var px = function px(v) {
       };
     }
   },
-  data() {
+  data: function data() {
     return {
       selected: false,
       selectedItem: 'unknown'
     };
   },
-  mounted() {
+  mounted: function mounted() {
     if (this.preSelected !== 'unknown') {
       this.selectedItem = this.preSelected;
     }
   },
+
   watch: {
-    value: function (val) {
+    value: function value(val) {
       this.selectedItem = val;
     }
   },
   methods: {
-    toggle(event) {
+    toggle: function toggle(event) {
       if (!this.disabled) {
         this.selected = true;
         this.selectedItem = event.target.id, this.$emit('selected', this.selected);
@@ -273,8 +274,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const plugin = {
-  install(Vue, options) {
+var plugin = {
+  install: function install(Vue, options) {
     Vue.component('ToggleSwitch', __WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue___default.a);
   }
 };

@@ -240,6 +240,7 @@ var px = function px(v) {
       this.selectedItem = this.preSelected;
     }
   },
+
   watch: {
     value: function value(val) {
       this.selectedItem = val;
