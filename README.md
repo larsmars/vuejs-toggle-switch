@@ -18,14 +18,17 @@ Vue.use(ToggleSwitch)
 ```
 
 Use: (in your local .vue file/component, html section)
+
 ```xml
 
       <toggle-switch
+        preSelected="Map" // This is optional     
         :labels="{map: 'Map', transit: 'Transit', satellite: 'Satellite'}"
         :width="380"
         :height="24"
         :padding="2"
         @change="updateMap($event.value)" // This is optional
+        @selected="selectedMethod() // This is optional
         v-model="selectedMapOption"/> // This is optional
 ```
 
@@ -46,12 +49,12 @@ Use: (in your local .vue file/component, html section)
 | disabled     | Boolean           | false       | disable switch |
 | preSelected     | String           | unknown       | set (pre) selected label, should not be used in combination with v-model |
 | labels     | [String, Object]           | n/a       | disable switch |
-| value     | String          | n/a       | value |
+| value     | String          | n/a       | value, ie:  v-model="selectedMapOption"  |
 
 ### Events
 
 | Name   | Description              |
 | ---    | ---                      |
-| change | Triggered whenever state of the component/switch changes, @change="vmValueItem = $event.value" |
-| selected | Whenever selected|
-
+| change | Triggered on toggle, user selects switch option, returns current value. @change="vmValueItem = $event.value" |
+| selected | Triggered whenever user select switch item |
+| input | Triggered on mount if preSelected is set or value is set, and on toggle/change |
