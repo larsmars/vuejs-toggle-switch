@@ -36,19 +36,19 @@ Use: (in your local .vue file/component, html section)
 
 | Name      | Type              | Default     | Description                        |
 | ---       | ---               | ---         | ---                                |
-| width     | Number           | 100       | Width of item|
+| width     | Number           | 100       | Width of labels|
 | height      | Number           | 34       | Height |
-| padding     | Number           | 7       | adjust text location with this |
-| backgroundColor      | String           | white       | background color |
-| color     | String           | black       | text color|
+| padding     | Number           | 7       | adjust text location in label with this |
+| backgroundColor      | String           | white       | background color (not selected) |
+| color     | String           | black       | text color (not selected)|
 | borderColor      | String  | #007aff | border color |
-| selectedColor     | String           | white     | text color selected item |
-| selectedBackgroundColor      | String           | #007aff       | selected item background color |
-| fontFamily     | String           | n/a  | font of item text |
+| selectedColor     | String           | white     | text color selected label |
+| selectedBackgroundColor      | String           | #007aff       | selected label background color |
+| fontFamily     | String           | n/a  | font of label text |
 | fontSize      | Number           | 14     | text size |
 | disabled     | Boolean           | false       | disable switch |
-| preSelected     | String           | unknown       | set (pre) selected label, should not be used in combination with v-model |
-| labels     | [String, Object]           | n/a       | disable switch |
+| preSelected     | String           | unknown       | set (pre) selected label |
+| labels     | [String, Object]           | n/a       | labels for switch |
 | value     | String          | n/a       | value, ie:  v-model="selectedMapOption"  |
 
 ### Events
