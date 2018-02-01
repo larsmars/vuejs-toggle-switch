@@ -1,5 +1,5 @@
 # vuejs-toggle-switch
-Toggle switch for vue.js 2+
+Toggle switch for vue.js
 
 [Live demo](http://softwarefun.no/#/toggleswitch) <i>only image under </i>
 
