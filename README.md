@@ -9,7 +9,7 @@ Toggle switch for vue.js 2+
 [![npm](https://img.shields.io/badge/npm-v1.0.6-blue.svg)](https://www.npmjs.org/package/vuejs-toggle-switch)
 > Only 1 dependency (vue)
 
-<img src="http://softwarefun.no/static/toggle-switch.png" height="200">
+<img src="http://softwarefun.no/static/icon.png" height="200">
 
 ## Setup
 install:
