@@ -24,9 +24,9 @@ Use: (in your local .vue file/component, html section)
       <toggle-switch
         preSelected="Map" // This is optional     
         :labels="{map: 'Map', transit: 'Transit', satellite: 'Satellite'}"
-        :width="380"
-        :height="24"
-        :padding="2"
+        :width="380" // This is optional
+        :height="24" // This is optional
+        :padding="2" // This is optional
         @change="updateMap($event.value)" // This is optional
         @selected="selectedMethod() // This is optional
         v-model="selectedMapOption"/> // This is optional
