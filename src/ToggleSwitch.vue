@@ -123,7 +123,11 @@ export default {
   },
   mounted () {
     if (this.preSelected !== 'unknown') {
-      this.selectedItem = this.preSelected
+      this.selectedItem = this.preSelected;
+      this.$emit('input', this.selectedItem);
+    } else if (this.value) {
+      this.selectedItem = this.value;
+      this.$emit('input', this.selectedItem);
     }
   },
   watch: {

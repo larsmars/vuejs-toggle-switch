@@ -3,6 +3,7 @@
     <div class="content">
       <img src="./assets/logo.png">
       <h1>{{ msg }}</h1>
+      <p>1. nothing selected, nothing mapped </p>
       <toggle-switch
         group='phones'
         :labels="{option1: 'Android', option2: 'iPhone'}"
@@ -19,8 +20,8 @@
       </span>
       <br>
       <br>
+      <p>2. v-model mapped + <strong>change</strong> and <strong>selected</strong> event </p>
       <toggle-switch
-        preSelected="Map"
         :labels="{map: 'Map', transit: 'Transit', satellite: 'Satellite'}"
         :width="380"
         :height=24
@@ -34,17 +35,32 @@
       </span>
       <br>
       <br>
+      <p>3. preSelected set ("Female"), nothing mapped </p>
       <toggle-switch
-        preSelected="Male"
+        preSelected="Female"
         :labels="{male: 'Male', female: 'Female'}"
         :width="380"
         :borderColor="'#999'"
         :backgroundColor="'#ccc'"
         :selectedBackgroundColor="'green'"
-        v-model="value3"/>
+        />
       <br>
       <span>
-        <strong> Value: </strong> {{ value3 }}
+        <strong> Value: (not mapped) </strong> {{ value3 }}
+      </span>
+      <br>
+      <br>
+      <p>4. v-model mapped to value4, value4 is set to "Start" </p>
+      <toggle-switch
+        :labels="{stop: 'Stop', start: 'Start'}"
+        :width="380"
+        :borderColor="'#999'"
+        :backgroundColor="'#ccc'"
+        :selectedBackgroundColor="'green'"
+        v-model="value4"/>
+      <br>
+      <span>
+        <strong> Value: </strong> {{ value4 }}
       </span>
     </div>
   </div>
@@ -60,19 +76,20 @@ export default {
       value2: 'Map',
       selected2: false,
       value3: 'not selected',
-      selected3: '',
+      value4: 'Start',
       msg: 'VueJS ToggleSwitch',
     }
   },
   methods: {
     updateMap (option) {
-      console.log('update map option: ' + option)
+      console.log('Update map option: ' + option)
     },
     selectedEvent(info) {
       this.selected2 = true;
       console.log(info)
-      // test v-model update of Male/Female toggle
-      this.value3 = 'Female'
+      console.log('triggered map selectedEvent')
+      // test v-model update of start/stop toggle
+      this.value4 = 'Stop'
     }
   }
 }
