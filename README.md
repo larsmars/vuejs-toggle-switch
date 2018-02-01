@@ -3,7 +3,7 @@ Toggle switch for vue.js 2+
 
 [Live demo](http://softwarefun.no/#/toggleswitch) <i>only image under </i>
 
-[![license][0]][1] ![updated][2] ![dependecies][3]
+[![license][0]][1] [![updated][2]][99] [![dependecies][3]][99]
 > Only 1 dependency (vue)
 
 <img src="https://github.com/larsmars/vuejs-toggle-switch/blob/master/demo/src/assets/demo_img.png" height="248">
@@ -66,4 +66,5 @@ Use: (in your local .vue file/component, html section)
 [1]: https://github.com/larsmars/vuejs-toggle-switch/blob/master/LICENSE
 [2]: https://img.shields.io/badge/updated-januar%202018-brightgreen.svg
 [3]: https://img.shields.io/badge/dependencies-1-brightgreen.svg
+[99]: https://github.com/larsmars/vuejs-toggle-switch
 
