@@ -3,8 +3,8 @@
     <ul :style="switchStyle" class="toggle-switch">
       <li :style="itemStyle" v-for="(label, index) in labels" :key="index">
         <input :disabled="disabled" :id="label" :value="label" :name="defaultItem" type="radio" @change.stop="toggle" v-model="defaultItem">
-        <label v-if="label === selectedItem" :style="labelStyleSelected" class="slider" :for="label" type="radio">{{label}}</label>
-        <label v-else :style="labelStyle" class="slider" :for="label" type="radio">{{label}}</label>
+        <label v-if="label === selectedItem" :style="labelStyleSelected" :class="{ active: !disabled }" class="slider" :for="label" type="radio">{{label}}</label>
+        <label v-else :style="labelStyle" :class="{ active: !disabled }" class="slider" :for="label" type="radio">{{label}}</label>
       </li>
     </ul>
   </div>
@@ -192,8 +192,11 @@ ul {
 }
 
 .toggle-switch label {
-  cursor:pointer;
   border:1px solid;
+}
+
+.active {
+  cursor:pointer;
 }
 
 .slider {

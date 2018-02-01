@@ -295,7 +295,7 @@ exports = module.exports = __webpack_require__(5)();
 
 
 // module
-exports.push([module.i, "ul[data-v-46bfeb61]{list-style:none}.toggle-switch[data-v-46bfeb61]{padding:0;margin:0;display:inline-flex}.toggle-switch li[data-v-46bfeb61]{position:relative}.toggle-switch li:first-child label[data-v-46bfeb61]{border-top-left-radius:5px;border-bottom-left-radius:5px}.toggle-switch li:last-child label[data-v-46bfeb61]{border-top-right-radius:5px;border-bottom-right-radius:5px}.toggle-switch input[data-v-46bfeb61],.toggle-switch label[data-v-46bfeb61]{display:block;position:absolute;top:0;left:0;right:0;bottom:0}.toggle-switch input[type=radio][data-v-46bfeb61]{opacity:.01;z-index:100}.toggle-switch label[data-v-46bfeb61]{cursor:pointer;border:1px solid}.slider[data-v-46bfeb61]{transition:.4s}", ""]);
+exports.push([module.i, "ul[data-v-46bfeb61]{list-style:none}.toggle-switch[data-v-46bfeb61]{padding:0;margin:0;display:inline-flex}.toggle-switch li[data-v-46bfeb61]{position:relative}.toggle-switch li:first-child label[data-v-46bfeb61]{border-top-left-radius:5px;border-bottom-left-radius:5px}.toggle-switch li:last-child label[data-v-46bfeb61]{border-top-right-radius:5px;border-bottom-right-radius:5px}.toggle-switch input[data-v-46bfeb61],.toggle-switch label[data-v-46bfeb61]{display:block;position:absolute;top:0;left:0;right:0;bottom:0}.toggle-switch input[type=radio][data-v-46bfeb61]{opacity:.01;z-index:100}.toggle-switch label[data-v-46bfeb61]{border:1px solid}.active[data-v-46bfeb61]{cursor:pointer}.slider[data-v-46bfeb61]{transition:.4s}", ""]);
 
 // exports
 
@@ -452,6 +452,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }), _vm._v(" "), (label === _vm.selectedItem) ? _c('label', {
       staticClass: "slider",
+      class: {
+        active: !_vm.disabled
+      },
       style: (_vm.labelStyleSelected),
       attrs: {
         "for": label,
@@ -459,6 +462,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_vm._v(_vm._s(label))]) : _c('label', {
       staticClass: "slider",
+      class: {
+        active: !_vm.disabled
+      },
       style: (_vm.labelStyle),
       attrs: {
         "for": label,
