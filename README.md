@@ -8,11 +8,13 @@ Toggle switch for vue.js 2+
 
 <img src="https://github.com/larsmars/vuejs-toggle-switch/blob/master/demo/src/assets/demo_img.png" height="248">
 
-Install:
+## Usage
+install:
 ```bash
 npm install vuejs-toggle-switch --save
 ```
 
+## Setup
 Import: (in your main.js)
 ```javascript
 import ToggleSwitch from 'vuejs-toggle-switch'
