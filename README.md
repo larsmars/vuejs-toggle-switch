@@ -6,7 +6,7 @@ Toggle switch for vue.js
 [![license][0]][1] 
 [![updated][2]][99] 
 [![dependecies][3]][99]
-[![npm](https://img.shields.io/badge/npm-v1.0.6-blue.svg)](https://www.npmjs.org/package/vuejs-toggle-switch)
+[![npm](https://img.shields.io/badge/npm-v1.0.10-blue.svg)](https://www.npmjs.org/package/vuejs-toggle-switch)
 > Only 1 dependency (vue)
 
 <img src="http://softwarefun.no/static/toggleswitch.png" height="300">
@@ -14,7 +14,7 @@ Toggle switch for vue.js
 ## Setup
 install:
 ```bash
-npm install vuejs-toggle-switch@1.0.6 --save
+npm install vuejs-toggle-switch --save
 ```
 
 Import: (in your main.js)
