@@ -132,9 +132,12 @@ var constants = {
   fontSize: 14,
   height: 34,
   padding: 7,
-  width: 100
+  width: 100,
+  delay: .4
 };
-
+var s = function s(x) {
+  return x + 's';
+};
 var px = function px(v) {
   return v + 'px';
 };
@@ -184,6 +187,10 @@ var px = function px(v) {
       type: Number,
       default: constants.fontSize
     },
+    delay: {
+      type: Number,
+      default: constants.delay
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -193,7 +200,8 @@ var px = function px(v) {
       default: 'unknown'
     },
     labels: {
-      type: [String, Object]
+      type: Array,
+      required: true
     }
   },
   computed: {
@@ -217,15 +225,8 @@ var px = function px(v) {
         padding: px(this.padding),
         borderColor: this.borderColor,
         backgroundColor: this.backgroundColor,
-        color: this.color
-      };
-    },
-    labelStyleSelected: function labelStyleSelected() {
-      return {
-        padding: px(this.padding),
-        borderColor: this.borderColor,
-        backgroundColor: this.selectedBackgroundColor,
-        color: this.selectedColor
+        color: this.color,
+        transition: s(this.delay)
       };
     }
   },
@@ -261,6 +262,16 @@ var px = function px(v) {
           srcEvent: event
         });
       }
+    },
+
+    labelStyleSelected: function labelStyleSelected(color, backgroundColor) {
+      return {
+        padding: px(this.padding),
+        borderColor: this.borderColor,
+        backgroundColor: backgroundColor !== undefined ? backgroundColor : this.selectedBackgroundColor,
+        color: color !== undefined ? color : this.selectedColor,
+        transition: s(this.delay)
+      };
     }
   }
 });
@@ -295,7 +306,7 @@ exports = module.exports = __webpack_require__(5)();
 
 
 // module
-exports.push([module.i, "ul[data-v-46bfeb61]{list-style:none}.toggle-switch[data-v-46bfeb61]{padding:0;margin:0;display:inline-flex}.toggle-switch li[data-v-46bfeb61]{position:relative}.toggle-switch li:first-child label[data-v-46bfeb61]{border:1px solid;border-top-left-radius:5px;border-bottom-left-radius:5px}.toggle-switch li:last-child label[data-v-46bfeb61]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-top-right-radius:5px;border-bottom-right-radius:5px}.toggle-switch input[data-v-46bfeb61],.toggle-switch label[data-v-46bfeb61]{display:block;position:absolute;top:0;left:0;right:0;bottom:0}.toggle-switch input[type=radio][data-v-46bfeb61]{opacity:.01;z-index:100}.toggle-switch li:not(:first-child):not(:last-child) label[data-v-46bfeb61]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid}.active[data-v-46bfeb61]{cursor:pointer}.slider[data-v-46bfeb61]{transition:.4s}", ""]);
+exports.push([module.i, "ul[data-v-46bfeb61]{list-style:none}.toggle-switch[data-v-46bfeb61]{padding:0;margin:0;display:inline-flex}.toggle-switch li[data-v-46bfeb61]{position:relative}.toggle-switch li:first-child label[data-v-46bfeb61]{border:1px solid;border-top-left-radius:5px;border-bottom-left-radius:5px}.toggle-switch li:last-child label[data-v-46bfeb61]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-top-right-radius:5px;border-bottom-right-radius:5px}.toggle-switch input[data-v-46bfeb61],.toggle-switch label[data-v-46bfeb61]{display:block;position:absolute;top:0;left:0;right:0;bottom:0}.toggle-switch input[type=radio][data-v-46bfeb61]{opacity:.01;z-index:100}.toggle-switch li:not(:first-child):not(:last-child) label[data-v-46bfeb61]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid}.active[data-v-46bfeb61]{cursor:pointer}", ""]);
 
 // exports
 
@@ -434,43 +445,41 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }],
       attrs: {
         "disabled": _vm.disabled,
-        "id": label,
+        "id": label.name,
         "name": _vm.defaultItem,
         "type": "radio"
       },
       domProps: {
-        "value": label,
-        "checked": _vm._q(_vm.defaultItem, label)
+        "value": label.name,
+        "checked": _vm._q(_vm.defaultItem, label.name)
       },
       on: {
         "change": [function($event) {
-          _vm.defaultItem = label
+          _vm.defaultItem = label.name
         }, function($event) {
           $event.stopPropagation();
           _vm.toggle($event)
         }]
       }
-    }), _vm._v(" "), (label === _vm.selectedItem) ? _c('label', {
-      staticClass: "slider",
+    }), _vm._v(" "), (label.name === _vm.selectedItem) ? _c('label', {
       class: {
         active: !_vm.disabled
       },
-      style: (_vm.labelStyleSelected),
+      style: (_vm.labelStyleSelected(label.color, label.backgroundColor)),
       attrs: {
-        "for": label,
+        "for": label.name,
         "type": "radio"
       }
-    }, [_vm._v(_vm._s(label))]) : _c('label', {
-      staticClass: "slider",
+    }, [_vm._v(_vm._s(label.name))]) : _c('label', {
       class: {
         active: !_vm.disabled
       },
       style: (_vm.labelStyle),
       attrs: {
-        "for": label,
+        "for": label.name,
         "type": "radio"
       }
-    }, [_vm._v(_vm._s(label))])])
+    }, [_vm._v(_vm._s(label.name))])])
   }))])
 },staticRenderFns: []}
 
