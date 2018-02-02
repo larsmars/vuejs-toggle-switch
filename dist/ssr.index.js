@@ -106,10 +106,14 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 //
 //
 //
@@ -139,7 +143,7 @@ var px = function px(v) {
   return v + 'px';
 };
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+exports.default = {
   name: 'ToggleSwitch',
   props: {
     value: {
@@ -263,28 +267,36 @@ var px = function px(v) {
       }
     }
   }
-});
+};
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue__);
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _ToggleSwitch = __webpack_require__(0);
+
+var _ToggleSwitch2 = _interopRequireDefault(_ToggleSwitch);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var plugin = {
   install: function install(Vue, options) {
-    Vue.component('ToggleSwitch', __WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue___default.a);
+    Vue.component('ToggleSwitch', _ToggleSwitch2.default);
   }
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (plugin);
+exports.default = plugin;
 
 /***/ }),
 /* 4 */
