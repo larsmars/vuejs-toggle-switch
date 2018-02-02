@@ -64,6 +64,7 @@ Use: (in your local .vue file/component, html section)
 | preSelected     | String           | unknown       | set (pre) selected label |
 | labels     | Array       | n/a       | Labels for switch, name property is mandatory|
 | value     | String          | n/a       | value, ie:  v-model="selectedMapOption"  |
+| delay     | number          | .4     | transition delay between labels is seconds |
 
 ### Events
 

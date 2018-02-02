@@ -16,6 +16,7 @@
         :selectedColor="'white'"
         :borderColor="'#999'"
         :backgroundColor="'lightgray'"
+        :delay="3.4"
         @change="value1 = $event.value, selected1 = true"
         />
       <br>
@@ -34,6 +35,7 @@
         :width="380"
         :height=24
         :padding=2
+        :delay="0"
         @change="updateMap($event.value)"
         @selected="selectedEvent('Map selected')"
         v-model="value2"/>
