@@ -29,11 +29,16 @@ Use: (in your local .vue file/component, html section)
 ```xml
 
       <toggle-switch
-        preSelected="Map" // This is optional     
-        :labels="{map: 'Map', transit: 'Transit', satellite: 'Satellite'}"
+        preSelected="WinPhone" // This is optional     
+        :labels="[
+        {name: 'Android', color: 'white', backgroundColor: '#61BB46'}, 
+        {name: 'iPhone', color: 'white', backgroundColor: '#FDB827'},
+        {name: 'WinPhone', color: 'black', backgroundColor: 'yellow'}
+        ]" // color and backgroundColor is optional, name is mandatory
         :width="380" // This is optional
         :height="24" // This is optional
         :padding="2" // This is optional
+        fontFamily="Lucida Grande" // This is optional
         @change="updateMap($event.value)" // This is optional
         @selected="selectedMethod() // This is optional
         v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
@@ -57,7 +62,7 @@ Use: (in your local .vue file/component, html section)
 | fontSize      | Number           | 14     | text size |
 | disabled     | Boolean           | false       | disable switch |
 | preSelected     | String           | unknown       | set (pre) selected label |
-| labels     | [String, Object]           | n/a       | labels for switch |
+| labels     | Array       | n/a       | Labels for switch, name property is mandatory|
 | value     | String          | n/a       | value, ie:  v-model="selectedMapOption"  |
 
 ### Events
@@ -73,7 +78,7 @@ Use: (in your local .vue file/component, html section)
 [1]: https://github.com/larsmars/vuejs-toggle-switch/blob/master/LICENSE
 [2]: https://img.shields.io/badge/updated-february%202018-brightgreen.svg
 [3]: https://img.shields.io/badge/dependencies-1-brightgreen.svg
-[4]: https://img.shields.io/badge/npm-v1.0.10-blue.svg
+[4]: https://img.shields.io/badge/npm-v1.0.11-blue.svg
 [5]: https://img.shields.io/badge/bugs-0-red.svg
 [98]: https://www.npmjs.org/package/vuejs-toggle-switch
 [99]: https://github.com/larsmars/vuejs-toggle-switch

@@ -141,7 +141,6 @@ var px = function px(v) {
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ToggleSwitch',
-
   props: {
     value: {
       type: String
