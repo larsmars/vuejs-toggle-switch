@@ -14,7 +14,7 @@ Toggle switch for vue.js
 ## Setup
 install:
 ```bash
-npm install vuejs-toggle-switch --save
+npm install vuejs-toggle-switch@1.0.6 --save
 ```
 
 Import: (in your main.js)
