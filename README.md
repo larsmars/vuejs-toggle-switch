@@ -6,7 +6,7 @@ Toggle switch for vue.js
 [![license][0]][1] 
 [![updated][2]][99] 
 [![dependecies][3]][99]
-[![npm](https://img.shields.io/badge/npm-v1.0.10-blue.svg)](https://www.npmjs.org/package/vuejs-toggle-switch)
+[![npm][4]][98]
 > Only 1 dependency (vue)
 
 <img src="http://softwarefun.no/static/toggleswitch.png" height="300">
@@ -70,7 +70,9 @@ Use: (in your local .vue file/component, html section)
 
 [0]: https://img.shields.io/badge/license-MIT-green.svg
 [1]: https://github.com/larsmars/vuejs-toggle-switch/blob/master/LICENSE
-[2]: https://img.shields.io/badge/updated-januar%202018-brightgreen.svg
+[2]: https://img.shields.io/badge/updated-february%202018-brightgreen.svg
 [3]: https://img.shields.io/badge/dependencies-1-brightgreen.svg
+[4]: https://img.shields.io/badge/npm-v1.0.10-blue.svg
+[98]: https://www.npmjs.org/package/vuejs-toggle-switch
 [99]: https://github.com/larsmars/vuejs-toggle-switch
 
