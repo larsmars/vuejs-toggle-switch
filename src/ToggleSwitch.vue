@@ -168,13 +168,17 @@ ul {
 }
 
 .toggle-switch li:first-child label {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+  border: 1px solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .toggle-switch li:last-child label {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+  border-right: 1px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .toggle-switch label, .toggle-switch input {
@@ -191,8 +195,10 @@ ul {
   z-index:100;
 }
 
-.toggle-switch label {
-  border:1px solid;
+.toggle-switch li:not(:first-child):not(:last-child) label {
+  border-right: 1px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .active {
