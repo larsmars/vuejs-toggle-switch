@@ -6,7 +6,11 @@
       <p>1. nothing selected, nothing mapped </p>
       <toggle-switch
         group='phones'
-        :labels="{option1: 'Android', option2: 'iPhone'}"
+        :labels="[
+        {name: 'Android', color: 'white', backgroundColor: '#61BB46'}, 
+        {name: 'iPhone', color: 'white', backgroundColor: '#FDB827'},
+        {name: 'WinPhone', color: 'black', backgroundColor: 'yellow'}
+        ]"
         :width="380"
         :selectedBackgroundColor="'green'"
         :selectedColor="'white'"
@@ -22,7 +26,11 @@
       <br>
       <p>2. v-model mapped + <strong>change</strong> and <strong>selected</strong> event </p>
       <toggle-switch
-        :labels="{map: 'Map', transit: 'Transit', satellite: 'Satellite'}"
+        :labels="[
+        {name: 'Map'}, 
+        {name: 'Transit' },
+        {name: 'Satellite' }
+        ]"
         :width="380"
         :height=24
         :padding=2
@@ -38,7 +46,10 @@
       <p>3. preSelected set ("Female"), nothing mapped </p>
       <toggle-switch
         preSelected="Female"
-        :labels="{male: 'Male', female: 'Female'}"
+        :labels="[
+        {name: 'Male'}, 
+        {name: 'Female' }
+        ]"
         :width="380"
         :borderColor="'#999'"
         :backgroundColor="'#ccc'"
@@ -52,7 +63,10 @@
       <br>
       <p>4. v-model mapped to value4, value4 is set to "Start" </p>
       <toggle-switch
-        :labels="{stop: 'Stop', start: 'Start'}"
+        :labels="[
+        {name: 'Stop', backgroundColor: 'red'}, 
+        {name: 'Start', backgroundColor: 'green' }
+        ]"
         :width="380"
         :borderColor="'#999'"
         :backgroundColor="'#ccc'"

@@ -2,9 +2,9 @@
   <div>
     <ul :style="switchStyle" class="toggle-switch">
       <li :style="itemStyle" v-for="(label, index) in labels" :key="index">
-        <input :disabled="disabled" :id="label" :value="label" :name="defaultItem" type="radio" @change.stop="toggle" v-model="defaultItem">
-        <label v-if="label === selectedItem" :style="labelStyleSelected" :class="{ active: !disabled }" class="slider" :for="label" type="radio">{{label}}</label>
-        <label v-else :style="labelStyle" :class="{ active: !disabled }" class="slider" :for="label" type="radio">{{label}}</label>
+        <input :disabled="disabled" :id="label.name" :value="label.name" :name="defaultItem" type="radio" @change.stop="toggle" v-model="defaultItem">
+        <label v-if="label.name === selectedItem" :style="labelStyleSelected(label.color, label.backgroundColor)" :class="{ active: !disabled }" class="slider" :for="label.name" type="radio">{{label.name}}</label>
+        <label v-else :style="labelStyle" :class="{ active: !disabled }" class="slider" :for="label.name" type="radio">{{label.name}}</label>
       </li>
     </ul>
   </div>
@@ -79,7 +79,8 @@ export default {
       default: 'unknown'
     },
     labels: {
-      type: [String, Object]
+      type: Array,
+      required: true
     }
   },
   computed: {
@@ -104,14 +105,6 @@ export default {
         borderColor: this.borderColor,
         backgroundColor: this.backgroundColor,
         color: this.color
-      }
-    },
-    labelStyleSelected () {
-      return {
-        padding: px(this.padding),
-        borderColor: this.borderColor,
-        backgroundColor: this.selectedBackgroundColor,
-        color: this.selectedColor
       }
     }
   },
@@ -146,6 +139,14 @@ export default {
           value: event.target.id,
           srcEvent: event
         })
+      }
+    },
+    labelStyleSelected: function (color, backgroundColor) {
+      return {
+        padding: px(this.padding),
+        borderColor: this.borderColor,
+        backgroundColor: backgroundColor !== undefined ? backgroundColor : this.selectedBackgroundColor,
+        color: color !== undefined ? color : this.selectedColor
       }
     }
   }
