@@ -7,6 +7,7 @@ Toggle switch for vue.js
 [![updated][2]][99] 
 [![dependecies][3]][99]
 [![npm][4]][98]
+[![bugs][5]][99]
 > Only 1 dependency (vue)
 
 <img src="http://softwarefun.no/static/toggleswitch.png" height="300">
@@ -73,6 +74,7 @@ Use: (in your local .vue file/component, html section)
 [2]: https://img.shields.io/badge/updated-february%202018-brightgreen.svg
 [3]: https://img.shields.io/badge/dependencies-1-brightgreen.svg
 [4]: https://img.shields.io/badge/npm-v1.0.10-blue.svg
+[5]: https://img.shields.io/badge/bugs-0-red.svg
 [98]: https://www.npmjs.org/package/vuejs-toggle-switch
 [99]: https://github.com/larsmars/vuejs-toggle-switch
 
