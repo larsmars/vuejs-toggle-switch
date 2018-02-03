@@ -9,6 +9,7 @@ Toggle switch for vue.js
 
 [Live demo](http://softwarefun.no/#/toggleswitch) 
 <br>
+
 <i>only image under </i>
 
 
