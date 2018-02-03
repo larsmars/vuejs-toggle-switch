@@ -1,16 +1,22 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js
 
-[Live demo](http://softwarefun.no/#/toggleswitch) <i>only image under </i>
-
 [![license][0]][1] 
 [![updated][2]][99] 
 [![dependecies][3]][99]
 [![npm][4]][98]
 [![bugs][5]][99]
+
+[Live demo](http://softwarefun.no/#/toggleswitch) 
+<br>
+<i>only image under </i>
+
+
 > Only 1 dependency (vue)
 
 <img src="http://softwarefun.no/static/toggleswitch.png" height="300">
+
+Do you have questions or want a new feature? Use the "Issues" section :D
 
 ## Setup
 install:
