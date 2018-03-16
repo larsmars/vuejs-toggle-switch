@@ -1,16 +1,23 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js
 
-[Live demo](http://softwarefun.no/#/toggleswitch) <i>only image under </i>
-
 [![license][0]][1] 
 [![updated][2]][99] 
 [![dependecies][3]][99]
 [![npm][4]][98]
 [![bugs][5]][99]
+
+[Live demo](http://softwarefun.no/#/toggleswitch) 
+<br>
+
+<i>only image under </i>
+
+
 > Only 1 dependency (vue)
 
 <img src="http://softwarefun.no/static/toggleswitch.png" height="300">
+
+Do you have questions or want a new feature? Use the "Issues" section :D
 
 ## Setup
 install:
@@ -52,19 +59,19 @@ Use: (in your local .vue file/component, html section)
 | ---       | ---               | ---         | ---                                |
 | width     | Number           | 100       | Width of labels|
 | height      | Number           | 34       | Height |
-| padding     | Number           | 7       | adjust text location in label with this |
-| backgroundColor      | String           | white       | background color (not selected) |
-| color     | String           | black       | text color (not selected)|
+| padding     | Number           | 7       | Adjust text location in label with this |
+| backgroundColor      | String           | white       | Background color (not selected) |
+| color     | String           | black       | Text color (not selected)|
 | borderColor      | String  | #007aff | border color |
-| selectedColor     | String           | white     | text color selected label |
-| selectedBackgroundColor      | String           | #007aff       | selected label background color |
-| fontFamily     | String           | n/a  | font of label text |
-| fontSize      | Number           | 14     | text size |
-| disabled     | Boolean           | false       | disable switch |
-| preSelected     | String           | unknown       | set (pre) selected label |
+| selectedColor     | String           | white     | Text color selected label |
+| selectedBackgroundColor      | String           | #007aff       | Selected label background color |
+| fontFamily     | String           | n/a  | Font of label text |
+| fontSize      | Number           | 14     | Text size |
+| disabled     | Boolean           | false       | Disable switch |
+| preSelected     | String           | unknown       | Set (pre) selected label |
 | labels     | Array       | n/a       | Labels for switch, name property is mandatory|
-| value     | String          | n/a       | value, ie:  v-model="selectedMapOption"  |
-| delay     | number          | .4     | transition delay between labels is seconds |
+| value     | String          | n/a       | Value, ie:  v-model="selectedMapOption"  |
+| delay     | Number          | .4     | Transition delay between labels is seconds |
 
 ### Events
 
