@@ -32,16 +32,16 @@ Use: (in your local .vue file/component, html section)
 
 ```xml
 
-      <toggle-switch
-        :options="myOptions"
-        @change="updateMap($event.value)" // This is optional
-        @selected="selectedMethod() // This is optional
-        v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
-        :value="selectedMapOption" // This is optional 1-way binding (try not to use both 1-way and 2-way)
-       /> 
+<toggle-switch
+  :options="myOptions"
+  @change="updateMap($event.value)" // This is optional
+  @selected="selectedMethod() // This is optional
+  v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
+  :value="selectedMapOption" // This is optional 1-way binding (try not to use both 1-way and 2-way)
+  /> 
 
 <!-- Options struct: -->
-options: {
+myOptions: {
   layout: {
     color: 'black',
     backgroundColor: 'lightgray',
