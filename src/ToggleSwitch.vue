@@ -39,8 +39,8 @@ export default {
         preSelected: 'unknown',
         disabled: false,
         labels: [
-          {name: 'Off', color: 'black', backgroundColor: 'red'}, 
-          {name: 'On', color: 'black', backgroundColor: 'green'}
+          {name: 'Off', color: 'white', backgroundColor: 'red'}, 
+          {name: 'On', color: 'white', backgroundColor: 'green'}
         ]
       }
     } 
