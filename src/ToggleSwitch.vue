@@ -24,7 +24,8 @@ export default {
         selectedColor: 'white',
         selectedBackgroundColor: 'green',
         borderColor: 'black',
-        fontFamily: 'Arial'
+        fontFamily: 'Arial',
+        fontWeight: 'normal'
       },
       size: {
         fontSize: 14,
@@ -50,7 +51,8 @@ export default {
       required: false
     },
     value: {
-      type: String
+      type: String,
+      required: false
     }
   },
   computed: {
@@ -65,6 +67,7 @@ export default {
         height: px(this.defaultOptions.size.height),
         width: px(this.defaultOptions.size.width),
         fontFamily: this.defaultOptions.layout.fontFamily,
+        fontWeight: this.defaultOptions.layout.fontWeight,
         fontSize: px(this.defaultOptions.size.fontSize),
         textAlign: 'center'
       }

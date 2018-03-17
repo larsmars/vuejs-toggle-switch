@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js
-v1.1.0
+v1.1.1
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-1-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -81,6 +81,7 @@ myOptions: {
 | selectedColor   | String            | white       | Text color selected label |
 | selectedBackgroundColor | String    | #007aff     | Selected label background color |
 | fontFamily      | String            | Arial       | Font of label text |
+| fontWeight      | String            | normal       | Font weight |
 | fontSize        | Number            | 14          | Text size |
 | disabled        | Boolean           | false       | Disable switch |
 | preSelected     | String            | unknown     | Set (pre) selected label |
