@@ -12,7 +12,7 @@ v1.1.4
 
 > Only 1 dependency (vue)
 
-<img src="http://softwarefun.no/static/toggleswitch.png" height="300">
+<img src="http://softwarefun.no/static/toggleswitchV2.png" height="300">
 
 Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
