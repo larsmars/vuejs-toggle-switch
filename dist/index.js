@@ -110,6 +110,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 //
 //
 //
@@ -123,18 +125,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-var constants = {
-  color: 'black',
-  backgroundColor: 'white',
-  selectedColor: 'white',
-  selectedBackgroundColor: '#007aff',
-  borderColor: '#007aff',
-  fontSize: 14,
-  height: 34,
-  padding: 7,
-  width: 100,
-  delay: .4
-};
+
 var s = function s(x) {
   return x + 's';
 };
@@ -143,102 +134,80 @@ var px = function px(v) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.defaultOptions = {
+      layout: {
+        color: 'black',
+        backgroundColor: 'lightgray',
+        selectedColor: 'white',
+        selectedBackgroundColor: '#007aff',
+        borderColor: 'black',
+        fontFamily: 'Arial'
+      },
+      size: {
+        fontSize: 14,
+        height: 34,
+        padding: 7,
+        width: 100
+      },
+      items: {
+        delay: .4,
+        preSelected: 'unknown',
+        disabled: false,
+        labels: [{ name: 'Off', color: 'black', backgroundColor: 'green' }, { name: 'On', color: 'black', backgroundColor: 'red' }]
+      }
+    };
+  },
+
   name: 'ToggleSwitch',
   props: {
+    options: {
+      type: Object,
+      required: false
+    },
     value: {
       type: String
-    },
-    height: {
-      type: Number,
-      default: constants.height
-    },
-    width: {
-      type: Number,
-      default: constants.width
-    },
-    padding: {
-      type: Number,
-      default: constants.padding
-    },
-    backgroundColor: {
-      type: String,
-      default: constants.backgroundColor
-    },
-    color: {
-      type: String,
-      default: constants.color
-    },
-    borderColor: {
-      type: String,
-      default: constants.borderColor
-    },
-    selectedColor: {
-      type: String,
-      default: constants.selectedColor
-    },
-    selectedBackgroundColor: {
-      type: String,
-      default: constants.selectedBackgroundColor
-    },
-    fontFamily: {
-      type: String
-    },
-    fontSize: {
-      type: Number,
-      default: constants.fontSize
-    },
-    delay: {
-      type: Number,
-      default: constants.delay
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    preSelected: {
-      type: String,
-      default: 'unknown'
-    },
-    labels: {
-      type: Array,
-      required: true
     }
   },
   computed: {
     switchStyle: function switchStyle() {
       return {
-        width: px(this.width),
-        height: px(this.height)
+        width: px(this.defaultOptions.size.width),
+        height: px(this.defaultOptions.size.height)
       };
     },
     itemStyle: function itemStyle() {
       return {
-        height: px(this.height),
-        width: px(this.width),
-        fontFamily: this.fontFamily,
-        fontSize: px(this.fontSize),
+        height: px(this.defaultOptions.size.height),
+        width: px(this.defaultOptions.size.width),
+        fontFamily: this.defaultOptions.layout.fontFamily,
+        fontSize: px(this.defaultOptions.size.fontSize),
         textAlign: 'center'
       };
     },
     labelStyle: function labelStyle() {
       return {
-        padding: px(this.padding),
-        borderColor: this.borderColor,
-        backgroundColor: this.backgroundColor,
-        color: this.color,
-        transition: s(this.delay)
+        padding: px(this.defaultOptions.size.padding),
+        borderColor: this.defaultOptions.layout.borderColor,
+        backgroundColor: this.defaultOptions.layout.backgroundColor,
+        color: this.defaultOptions.layout.color,
+        transition: s(this.defaultOptions.items.delay)
       };
     }
   },
   data: function data() {
     return {
       selected: false,
-      selectedItem: 'unknown'
+      selectedItem: 'unknown',
+      defaultOptions: Object
     };
   },
   mounted: function mounted() {
-    if (this.preSelected !== 'unknown') {
-      this.selectedItem = this.preSelected;
+    if (this.options !== null && this.options !== undefined) {
+      this.mergeDefaultOptionsWithProp(this.options);
+    }
+    if (this.defaultOptions.items.preSelected !== 'unknown') {
+      this.selectedItem = this.defaultOptions.items.preSelected;
       this.$emit('input', this.selectedItem);
     } else if (this.value) {
       this.selectedItem = this.value;
@@ -253,7 +222,7 @@ var px = function px(v) {
   },
   methods: {
     toggle: function toggle(event) {
-      if (!this.disabled) {
+      if (!this.defaultOptions.items.disabled) {
         this.selected = true;
         this.selectedItem = event.target.id, this.$emit('selected', this.selected);
         this.$emit('input', this.selectedItem);
@@ -266,12 +235,26 @@ var px = function px(v) {
 
     labelStyleSelected: function labelStyleSelected(color, backgroundColor) {
       return {
-        padding: px(this.padding),
-        borderColor: this.borderColor,
-        backgroundColor: backgroundColor !== undefined ? backgroundColor : this.selectedBackgroundColor,
-        color: color !== undefined ? color : this.selectedColor,
-        transition: s(this.delay)
+        padding: px(this.defaultOptions.size.padding),
+        borderColor: this.defaultOptions.layout.borderColor,
+        backgroundColor: backgroundColor !== undefined ? backgroundColor : this.defaultOptions.layout.selectedBackgroundColor,
+        color: color !== undefined ? color : this.defaultOptions.layout.selectedColor,
+        transition: s(this.defaultOptions.items.delay)
       };
+    },
+    mergeDefaultOptionsWithProp: function mergeDefaultOptionsWithProp(options) {
+      var result = this.defaultOptions;
+      for (var option in options) {
+        if (options[option] !== null && _typeof(options[option]) === 'object') {
+          for (var subOption in options[option]) {
+            if (options[option][subOption] !== undefined && options[option][subOption] !== null) {
+              result[option][subOption] = options[option][subOption];
+            }
+          }
+        } else {
+          result[option] = options[option];
+        }
+      }
     }
   }
 });
@@ -432,7 +415,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', [_c('ul', {
     staticClass: "toggle-switch",
     style: (_vm.switchStyle)
-  }, _vm._l((_vm.labels), function(label, index) {
+  }, _vm._l((_vm.defaultOptions.items.labels), function(label, index) {
     return _c('li', {
       key: index,
       style: (_vm.itemStyle)
@@ -444,7 +427,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         expression: "defaultItem"
       }],
       attrs: {
-        "disabled": _vm.disabled,
+        "disabled": _vm.defaultOptions.items.disabled,
         "id": label.name,
         "name": _vm.defaultItem,
         "type": "radio"
@@ -463,7 +446,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }), _vm._v(" "), (label.name === _vm.selectedItem) ? _c('label', {
       class: {
-        active: !_vm.disabled
+        active: !_vm.defaultOptions.items.disabled
       },
       style: (_vm.labelStyleSelected(label.color, label.backgroundColor)),
       attrs: {
@@ -472,7 +455,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_vm._v(_vm._s(label.name))]) : _c('label', {
       class: {
-        active: !_vm.disabled
+        active: !_vm.defaultOptions.items.disabled
       },
       style: (_vm.labelStyle),
       attrs: {

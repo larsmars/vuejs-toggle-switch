@@ -1,116 +1,81 @@
 <template>
   <div>
     <ul :style="switchStyle" class="toggle-switch">
-      <li :style="itemStyle" v-for="(label, index) in labels" :key="index">
-        <input :disabled="disabled" :id="label.name" :value="label.name" :name="defaultItem" type="radio" @change.stop="toggle" v-model="defaultItem">
-        <label v-if="label.name === selectedItem" :style="labelStyleSelected(label.color, label.backgroundColor)" :class="{ active: !disabled }" :for="label.name" type="radio">{{label.name}}</label>
-        <label v-else :style="labelStyle" :class="{active: !disabled }" :for="label.name" type="radio">{{label.name}}</label>
+      <li :style="itemStyle" v-for="(label, index) in defaultOptions.items.labels" :key="index">
+        <input :disabled="defaultOptions.items.disabled" :id="label.name" :value="label.name" :name="defaultItem" type="radio" @change.stop="toggle" v-model="defaultItem">
+        <label v-if="label.name === selectedItem" :style="labelStyleSelected(label.color, label.backgroundColor)" :class="{ active: !defaultOptions.items.disabled }" :for="label.name" type="radio">{{label.name}}</label>
+        <label v-else :style="labelStyle" :class="{active: !defaultOptions.items.disabled }" :for="label.name" type="radio">{{label.name}}</label>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-const constants = {
-  color: 'black',
-  backgroundColor: 'white',
-  selectedColor: 'white',
-  selectedBackgroundColor: '#007aff',
-  borderColor: '#007aff',
-  fontSize: 14,
-  height: 34,
-  padding: 7,
-  width: 100,
-  delay: .4
-}
+
 const s = x => x + 's'
 const px = v => v + 'px'
 
 export default {
+    created () {
+    this.defaultOptions = {
+      layout: {
+        color: 'black',
+        backgroundColor: 'lightgray',
+        selectedColor: 'white',
+        selectedBackgroundColor: '#007aff',
+        borderColor: 'black',
+        fontFamily: 'Arial'
+      },
+      size: {
+        fontSize: 14,
+        height: 34,
+        padding: 7,
+        width: 100
+      },
+      items: {
+        delay: .4,
+        preSelected: 'unknown',
+        disabled: false,
+        labels: [
+          {name: 'Off', color: 'black', backgroundColor: 'green'}, 
+          {name: 'On', color: 'black', backgroundColor: 'red'}
+        ]
+      }
+    } 
+  },
   name: 'ToggleSwitch',
   props: {
+    options: {
+      type: Object,
+      required: false
+    },
     value: {
       type: String
-    },
-    height: {
-      type: Number,
-      default: constants.height
-    },
-    width: {
-      type: Number,
-      default: constants.width
-    },
-    padding: {
-      type: Number,
-      default: constants.padding
-    },
-    backgroundColor: {
-      type: String,
-      default: constants.backgroundColor
-    },
-    color: {
-      type: String,
-      default: constants.color
-    },
-    borderColor: {
-      type: String,
-      default: constants.borderColor
-    },
-    selectedColor: {
-      type: String,
-      default: constants.selectedColor
-    },
-    selectedBackgroundColor: {
-      type: String,
-      default: constants.selectedBackgroundColor
-    },
-    fontFamily: {
-      type: String
-    },
-    fontSize: {
-      type: Number,
-      default: constants.fontSize
-    },
-    delay: {
-      type: Number,
-      default: constants.delay
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    preSelected: {
-      type: String,
-      default: 'unknown'
-    },
-    labels: {
-      type: Array,
-      required: true
     }
   },
   computed: {
     switchStyle () {
       return {
-        width: px(this.width),
-        height: px(this.height)
+        width: px(this.defaultOptions.size.width),
+        height: px(this.defaultOptions.size.height)
       }
     },
     itemStyle () {
       return {
-        height: px(this.height),
-        width: px(this.width),
-        fontFamily: this.fontFamily,
-        fontSize: px(this.fontSize),
+        height: px(this.defaultOptions.size.height),
+        width: px(this.defaultOptions.size.width),
+        fontFamily: this.defaultOptions.layout.fontFamily,
+        fontSize: px(this.defaultOptions.size.fontSize),
         textAlign: 'center'
       }
     },
     labelStyle () {
       return {
-        padding: px(this.padding),
-        borderColor: this.borderColor,
-        backgroundColor: this.backgroundColor,
-        color: this.color,
-        transition: s(this.delay)
+        padding: px(this.defaultOptions.size.padding),
+        borderColor: this.defaultOptions.layout.borderColor,
+        backgroundColor: this.defaultOptions.layout.backgroundColor,
+        color: this.defaultOptions.layout.color,
+        transition: s(this.defaultOptions.items.delay)
       }
     }
   },
@@ -118,11 +83,15 @@ export default {
     return {
       selected: false,
       selectedItem: 'unknown',
+      defaultOptions: Object
     }
   },
   mounted () {
-    if (this.preSelected !== 'unknown') {
-      this.selectedItem = this.preSelected;
+    if (this.options !== null && this.options !== undefined) {
+      this.mergeDefaultOptionsWithProp(this.options)
+    }
+    if (this.defaultOptions.items.preSelected !== 'unknown') {
+      this.selectedItem = this.defaultOptions.items.preSelected;
       this.$emit('input', this.selectedItem);
     } else if (this.value) {
       this.selectedItem = this.value;
@@ -136,7 +105,7 @@ export default {
   },
   methods: {
     toggle (event) {
-      if (!this.disabled) {
+      if (!this.defaultOptions.items.disabled) {
         this.selected = true
         this.selectedItem = event.target.id,
         this.$emit('selected', this.selected)
@@ -149,11 +118,26 @@ export default {
     },
     labelStyleSelected: function (color, backgroundColor) {
       return {
-        padding: px(this.padding),
-        borderColor: this.borderColor,
-        backgroundColor: backgroundColor !== undefined ? backgroundColor : this.selectedBackgroundColor,
-        color: color !== undefined ? color : this.selectedColor,
-        transition: s(this.delay)
+        padding: px(this.defaultOptions.size.padding),
+        borderColor: this.defaultOptions.layout.borderColor,
+        backgroundColor: backgroundColor !== undefined ? backgroundColor : this.defaultOptions.layout.selectedBackgroundColor,
+        color: color !== undefined ? color : this.defaultOptions.layout.selectedColor,
+        transition: s(this.defaultOptions.items.delay)
+      }
+    },
+    mergeDefaultOptionsWithProp: function (options) {
+      var result = this.defaultOptions
+      for (var option in options)
+      {
+        if (options[option] !== null && typeof(options[option]) === 'object') {
+          for (var subOption in options[option]) {
+            if (options[option][subOption] !== undefined && options[option][subOption] !== null) {
+              result[option][subOption] = options[option][subOption]
+            }
+          }
+        } else {
+          result[option] = options[option]
+        }
       }
     }
   }
