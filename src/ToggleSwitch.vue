@@ -22,7 +22,7 @@ export default {
         color: 'black',
         backgroundColor: 'lightgray',
         selectedColor: 'white',
-        selectedBackgroundColor: '#007aff',
+        selectedBackgroundColor: 'green',
         borderColor: 'black',
         fontFamily: 'Arial'
       },

@@ -1,5 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js
+v1.1.0
 
 [![license][0]][1] 
 [![updated][2]][99] 
@@ -17,7 +18,7 @@ Toggle switch for vue.js
 
 <img src="http://softwarefun.no/static/toggleswitch.png" height="300">
 
-Do you have questions or want a new feature? Use the "Issues" section :D
+Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
 ## Setup
 install:
@@ -36,16 +37,7 @@ Use: (in your local .vue file/component, html section)
 ```xml
 
       <toggle-switch
-        preSelected="WinPhone" // This is optional     
-        :labels="[
-        {name: 'Android', color: 'white', backgroundColor: '#61BB46'}, 
-        {name: 'iPhone', color: 'white', backgroundColor: '#FDB827'},
-        {name: 'WinPhone', color: 'black', backgroundColor: 'yellow'}
-        ]" // color and backgroundColor is optional, name is mandatory
-        :width="380" // This is optional
-        :height="24" // This is optional
-        :padding="2" // This is optional
-        fontFamily="Lucida Grande" // This is optional
+        :options="myOptions"
         @change="updateMap($event.value)" // This is optional
         @selected="selectedMethod() // This is optional
         v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
@@ -53,25 +45,56 @@ Use: (in your local .vue file/component, html section)
        /> 
 ```
 
+<!-- Options struct: -->
+options: {
+  layout: {
+    color: 'black',
+    backgroundColor: 'lightgray',
+    selectedColor: 'white',
+    selectedBackgroundColor: '#007aff',
+    borderColor: 'black',
+    fontFamily: 'Arial'
+  },
+  size: {
+    fontSize: 14,
+    height: 34,
+    padding: 7,
+    width: 100
+  },
+  items: {
+    delay: .4,
+    preSelected: 'unknown',
+    disabled: false,
+    labels: [
+      {name: 'Off', color: 'black', backgroundColor: 'green'}, 
+      {name: 'On', color: 'black', backgroundColor: 'red'}
+    ]
+  }
+}
+```
+
 ### Properties
 
-| Name      | Type              | Default     | Description                        |
-| ---       | ---               | ---         | ---                                |
-| width     | Number           | 100       | Width of labels|
-| height      | Number           | 34       | Height |
-| padding     | Number           | 7       | Adjust text location in label with this |
-| backgroundColor      | String           | white       | Background color (not selected) |
-| color     | String           | black       | Text color (not selected)|
-| borderColor      | String  | #007aff | border color |
-| selectedColor     | String           | white     | Text color selected label |
-| selectedBackgroundColor      | String           | #007aff       | Selected label background color |
-| fontFamily     | String           | n/a  | Font of label text |
-| fontSize      | Number           | 14     | Text size |
-| disabled     | Boolean           | false       | Disable switch |
-| preSelected     | String           | unknown       | Set (pre) selected label |
-| labels     | Array       | n/a       | Labels for switch, name property is mandatory|
-| value     | String          | n/a       | Value, ie:  v-model="selectedMapOption"  |
-| delay     | Number          | .4     | Transition delay between labels is seconds |
+| Name            | Type              | Default     | Description                        |
+| ---             | ---               | ---         | ---                                |
+| width           | Number            | 100         | Width of labels|
+| height          | Number            | 34          | Height |
+| padding         | Number            | 7           | Adjust text location in label with this |
+| backgroundColor | String            | lightgray   | Background color (not selected) |
+| color           | String            | black       | Text color (not selected)|
+| borderColor     | String            | black       | border color |
+| selectedColor   | String            | white       | Text color selected label |
+| selectedBackgroundColor | String    | #007aff     | Selected label background color |
+| fontFamily      | String            | Arial       | Font of label text |
+| fontSize        | Number            | 14          | Text size |
+| disabled        | Boolean           | false       | Disable switch |
+| preSelected     | String            | unknown     | Set (pre) selected label |
+| labels          | Array             | Off/On      | Labels for switch, name property is mandatory|
+| value           | String            | n/a         | Value, ie:  v-model="selectedMapOption"  |
+| delay           | Number            | .4          | Transition delay between labels is seconds |
+
+<i>Labels prop can be used with or without color and backgroundColor attr, if not used the common prop: 
+selectedColor and selectedBackgroundColor will be used for all labels.</i>
 
 ### Events
 
