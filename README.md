@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js
-v1.1.3
+v1.1.4
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-1-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -55,7 +55,7 @@ myOptions: {
   size: {
     fontSize: 14,
     height: 34,
-    padding: 7,
+    padding: 4.5,
     width: 100
   },
   items: {
@@ -79,11 +79,11 @@ myOptions: {
 | padding         | Number            | 7           | Adjust text location in label with this |
 | backgroundColor | String            | lightgray   | Background color (not selected) |
 | color           | String            | black       | Text color (not selected)|
-| borderColor     | String            | black       | border color |
+| borderColor     | String            | gray        | border color |
 | selectedColor   | String            | white       | Text color selected label |
-| selectedBackgroundColor | String    | #007aff     | Selected label background color |
+| selectedBackgroundColor | String    | green       | Selected label background color |
 | fontFamily      | String            | Arial       | Font of label text |
-| fontWeight      | String            | normal      | Font weight item |
+| fontWeight      | String            | normal      | Font weight item (not selected) |
 | fontWeightSelected      | String    | bold        | Font weight selected item |
 | fontSize        | Number            | 14          | Text size |
 | disabled        | Boolean           | false       | Disable switch |

@@ -23,7 +23,7 @@ export default {
         backgroundColor: 'lightgray',
         selectedColor: 'white',
         selectedBackgroundColor: 'green',
-        borderColor: 'black',
+        borderColor: 'gray',
         fontFamily: 'Arial',
         fontWeight: 'normal',
         fontWeightSelected: 'bold'
@@ -31,7 +31,7 @@ export default {
       size: {
         fontSize: 14,
         height: 34,
-        padding: 7,
+        padding: 4.5,
         width: 100
       },
       items: {
@@ -39,8 +39,8 @@ export default {
         preSelected: 'unknown',
         disabled: false,
         labels: [
-          {name: 'Off', color: 'black', backgroundColor: 'green'}, 
-          {name: 'On', color: 'black', backgroundColor: 'red'}
+          {name: 'Off', color: 'black', backgroundColor: 'red'}, 
+          {name: 'On', color: 'black', backgroundColor: 'green'}
         ]
       }
     } 

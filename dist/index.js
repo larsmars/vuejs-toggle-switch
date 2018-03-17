@@ -141,7 +141,7 @@ var px = function px(v) {
         backgroundColor: 'lightgray',
         selectedColor: 'white',
         selectedBackgroundColor: 'green',
-        borderColor: 'black',
+        borderColor: 'gray',
         fontFamily: 'Arial',
         fontWeight: 'normal',
         fontWeightSelected: 'bold'
@@ -149,14 +149,14 @@ var px = function px(v) {
       size: {
         fontSize: 14,
         height: 34,
-        padding: 7,
+        padding: 4.5,
         width: 100
       },
       items: {
         delay: .4,
         preSelected: 'unknown',
         disabled: false,
-        labels: [{ name: 'Off', color: 'black', backgroundColor: 'green' }, { name: 'On', color: 'black', backgroundColor: 'red' }]
+        labels: [{ name: 'Off', color: 'black', backgroundColor: 'red' }, { name: 'On', color: 'black', backgroundColor: 'green' }]
       }
     };
   },
