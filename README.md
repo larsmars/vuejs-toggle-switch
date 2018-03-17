@@ -39,7 +39,6 @@ Use: (in your local .vue file/component, html section)
         v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
         :value="selectedMapOption" // This is optional 1-way binding (try not to use both 1-way and 2-way)
        /> 
-```
 
 <!-- Options struct: -->
 options: {
