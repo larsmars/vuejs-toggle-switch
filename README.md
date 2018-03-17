@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js
-v1.1.2
+v1.1.3
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-1-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -46,9 +46,11 @@ myOptions: {
     color: 'black',
     backgroundColor: 'lightgray',
     selectedColor: 'white',
-    selectedBackgroundColor: '#007aff',
+    selectedBackgroundColor: 'green',
     borderColor: 'black',
-    fontFamily: 'Arial'
+    fontFamily: 'Arial',
+    fontWeight: 'normal',
+    fontWeightSelected: 'bold'
   },
   size: {
     fontSize: 14,
@@ -61,8 +63,8 @@ myOptions: {
     preSelected: 'unknown',
     disabled: false,
     labels: [
-      {name: 'Off', color: 'black', backgroundColor: 'green'}, 
-      {name: 'On', color: 'black', backgroundColor: 'red'}
+      {name: 'Off', color: 'black', backgroundColor: 'red'}, 
+      {name: 'On', color: 'black', backgroundColor: 'green'}
     ]
   }
 }
@@ -81,7 +83,8 @@ myOptions: {
 | selectedColor   | String            | white       | Text color selected label |
 | selectedBackgroundColor | String    | #007aff     | Selected label background color |
 | fontFamily      | String            | Arial       | Font of label text |
-| fontWeight      | String            | normal       | Font weight |
+| fontWeight      | String            | normal      | Font weight item |
+| fontWeightSelected      | String    | bold        | Font weight selected item |
 | fontSize        | Number            | 14          | Text size |
 | disabled        | Boolean           | false       | Disable switch |
 | preSelected     | String            | unknown     | Set (pre) selected label |

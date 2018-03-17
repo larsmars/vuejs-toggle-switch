@@ -25,7 +25,8 @@ export default {
         selectedBackgroundColor: 'green',
         borderColor: 'black',
         fontFamily: 'Arial',
-        fontWeight: 'normal'
+        fontWeight: 'normal',
+        fontWeightSelected: 'bold'
       },
       size: {
         fontSize: 14,
@@ -123,6 +124,7 @@ export default {
       return {
         padding: px(this.defaultOptions.size.padding),
         borderColor: this.defaultOptions.layout.borderColor,
+        fontWeight: this.defaultOptions.layout.fontWeightSelected,
         backgroundColor: backgroundColor !== undefined ? backgroundColor : this.defaultOptions.layout.selectedBackgroundColor,
         color: color !== undefined ? color : this.defaultOptions.layout.selectedColor,
         transition: s(this.defaultOptions.items.delay)
