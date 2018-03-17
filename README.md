@@ -1,5 +1,5 @@
 # vuejs-toggle-switch
-Toggle switch for vue.js
+Toggle switch for vue.js <br>
 v1.1.4
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-1-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
