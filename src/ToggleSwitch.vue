@@ -67,7 +67,6 @@ export default {
         height: px(this.defaultOptions.size.height),
         width: px(this.defaultOptions.size.width),
         fontFamily: this.defaultOptions.layout.fontFamily,
-        fontWeight: this.defaultOptions.layout.fontWeight,
         fontSize: px(this.defaultOptions.size.fontSize),
         textAlign: 'center'
       }
@@ -78,6 +77,7 @@ export default {
         borderColor: this.defaultOptions.layout.borderColor,
         backgroundColor: this.defaultOptions.layout.backgroundColor,
         color: this.defaultOptions.layout.color,
+        fontWeight: this.defaultOptions.layout.fontWeight,
         transition: s(this.defaultOptions.items.delay)
       }
     }
