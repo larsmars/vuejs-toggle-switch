@@ -2,11 +2,9 @@
 Toggle switch for vue.js
 v1.1.0
 
-[![license][0]][1] 
-[![updated][2]][99] 
-[![dependecies][3]][99]
-[![npm][4]][98]
-[![bugs][5]][99]
+<img src="https://img.shields.io/badge/license-MIT-green.svg" />
+<img src="https://img.shields.io/badge/dependencies-1-brightgreen.svg" />
+<img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
 [Live demo](http://softwarefun.no/#/toggleswitch) 
 <br>
