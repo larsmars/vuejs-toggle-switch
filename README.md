@@ -3,14 +3,10 @@ Toggle switch for vue.js <br>
 v1.1.4
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-1-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
+> Only 1 dependency (vue)
 
 [Live demo](http://softwarefun.no/#/toggleswitch) 
 <br>
-
-<i>only image under </i>
-
-
-> Only 1 dependency (vue)
 
 <img src="http://softwarefun.no/static/toggleswitchV2.png" height="300">
 
