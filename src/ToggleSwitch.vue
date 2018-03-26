@@ -36,7 +36,7 @@ export default {
       },
       items: {
         delay: .4,
-        preSelected: 'unknown',
+        preSelected: 'On',
         disabled: false,
         labels: [
           {name: 'Off', color: 'white', backgroundColor: 'red'}, 
