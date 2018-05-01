@@ -33,7 +33,7 @@ export default {
       size: {
         fontSize: 14,
         height: 34,
-        padding: 4.5,
+        padding: 4,
         width: 100
       },
       items: {

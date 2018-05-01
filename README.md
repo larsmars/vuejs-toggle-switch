@@ -52,7 +52,7 @@ myOptions: {
   size: {
     fontSize: 14,
     height: 34,
-    padding: 4.5,
+    padding: 4,
     width: 100
   },
   items: {
@@ -71,9 +71,9 @@ myOptions: {
 
 | Name            | Type              | Default     | Description                        |
 | ---             | ---               | ---         | ---                                |
-| width           | Number            | 100         | Width of labels|
+| width           | Number            | 100         | Width of labels |
 | height          | Number            | 34          | Height |
-| padding         | Number            | 7           | Adjust text location in label with this |
+| padding         | Number            | 4           | Adjust text location in label with this |
 | backgroundColor | String            | lightgray   | Background color (not selected) |
 | color           | String            | black       | Text color (not selected)|
 | borderColor     | String            | gray        | border color |
