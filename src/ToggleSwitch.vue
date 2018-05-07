@@ -2,7 +2,7 @@
   <div>
     <ul :style="switchStyle" class="toggle-switch" :class="{'square' : defaultOptions.layout.squareCorners}">
       <li :style="itemStyle" v-for="(label, index) in defaultOptions.items.labels" :key="index">
-        <input :disabled="defaultOptions.items.disabled" :id="label.name" :value="label.name" :name="defaultItem" type="radio" @change.stop="toggle" v-model="defaultItem">
+        <input :disabled="defaultOptions.items.disabled" :id="label.name" :value="label.name" :name="defaultOptions.items.key" type="radio" @change.stop="toggle">
         <label v-if="label.name === selectedItem" :style="labelStyleSelected(label.color, label.backgroundColor)" :class="{ active: !defaultOptions.items.disabled }" :for="label.name" type="radio">{{label.name}}</label>
         <label v-else :style="labelStyle" :class="{active: !defaultOptions.items.disabled }" :for="label.name" type="radio">{{label.name}}</label>
       </li>
@@ -39,6 +39,7 @@ export default {
       items: {
         delay: .4,
         preSelected: 'unknown',
+        key: 'switch',
         disabled: false,
         labels: [
           {name: 'Off', color: 'white', backgroundColor: 'red'}, 

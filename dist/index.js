@@ -151,12 +151,13 @@ var px = function px(v) {
       size: {
         fontSize: 14,
         height: 34,
-        padding: 4.5,
+        padding: 4,
         width: 100
       },
       items: {
         delay: .4,
         preSelected: 'unknown',
+        key: 'switch',
         disabled: false,
         labels: [{ name: 'Off', color: 'white', backgroundColor: 'red' }, { name: 'On', color: 'white', backgroundColor: 'green' }]
       }
@@ -430,29 +431,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       key: index,
       style: (_vm.itemStyle)
     }, [_c('input', {
-      directives: [{
-        name: "model",
-        rawName: "v-model",
-        value: (_vm.defaultItem),
-        expression: "defaultItem"
-      }],
       attrs: {
         "disabled": _vm.defaultOptions.items.disabled,
         "id": label.name,
-        "name": _vm.defaultItem,
+        "name": _vm.defaultOptions.items.key,
         "type": "radio"
       },
       domProps: {
-        "value": label.name,
-        "checked": _vm._q(_vm.defaultItem, label.name)
+        "value": label.name
       },
       on: {
-        "change": [function($event) {
-          _vm.defaultItem = label.name
-        }, function($event) {
+        "change": function($event) {
           $event.stopPropagation();
           _vm.toggle($event)
-        }]
+        }
       }
     }), _vm._v(" "), (label.name === _vm.selectedItem) ? _c('label', {
       class: {
