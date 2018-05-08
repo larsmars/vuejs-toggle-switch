@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v1.1.14
+v1.1.15
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -33,6 +33,7 @@ Use: (in your local .vue file/component, html section)
   @selected="selectedMethod() // This is optional
   v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
   :value="selectedMapOption" // This is optional 1-way binding (try not to use both 1-way and 2-way)
+  :key="Key007" // This is optional
   /> 
 
 <!-- Options struct: -->
@@ -58,7 +59,6 @@ myOptions: {
   items: {
     delay: .4,
     preSelected: 'unknown',
-    key: 'switch',
     disabled: false,
     labels: [
       {name: 'Off', color: 'white', backgroundColor: 'red'}, 
@@ -91,7 +91,7 @@ myOptions: {
 | delay           | Number            | .4          | Transition delay between labels is seconds |
 | squareCorners   | Boolean           | false       | Rounded corners of switch |
 | noBorder        | Boolean           | false       | Remove border |
-| key             | String            | switch      | Switch key/group name |
+| key             | String            | switch      | Switch key/group name (optional) |
 
 <i>Labels prop can be used with or without color and backgroundColor attr, if not used the common prop: 
 selectedColor and selectedBackgroundColor will be used for all labels.</i>
@@ -113,4 +113,3 @@ selectedColor and selectedBackgroundColor will be used for all labels.</i>
 [5]: https://img.shields.io/badge/bugs-0-red.svg
 [98]: https://www.npmjs.org/package/vuejs-toggle-switch
 [99]: https://github.com/larsmars/vuejs-toggle-switch
-
