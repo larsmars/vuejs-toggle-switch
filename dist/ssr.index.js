@@ -438,12 +438,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('input', {
       attrs: {
         "disabled": _vm.defaultOptions.items.disabled,
-        "id": label.name,
+        "id": label.name + _vm.group,
         "name": _vm.group,
         "type": "radio"
       },
       domProps: {
-        "value": label.name
+        "value": label.name + _vm.group
       },
       on: {
         "change": function($event) {
@@ -451,13 +451,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.toggle($event)
         }
       }
-    }), _vm._v(" "), (label.name === _vm.selectedItem) ? _c('label', {
+    }), _vm._v(" "), (label.name + _vm.group === _vm.selectedItem) ? _c('label', {
       class: {
         active: !_vm.defaultOptions.items.disabled
       },
       style: (_vm.labelStyleSelected(label.color, label.backgroundColor)),
       attrs: {
-        "for": label.name,
+        "for": label.name + _vm.group,
         "type": "radio"
       }
     }, [_vm._v(_vm._s(label.name))]) : _c('label', {
@@ -466,7 +466,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       style: (_vm.labelStyle),
       attrs: {
-        "for": label.name,
+        "for": label.name + _vm.group,
         "type": "radio"
       }
     }, [_vm._v(_vm._s(label.name))])])
