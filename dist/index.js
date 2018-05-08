@@ -238,7 +238,7 @@ var px = function px(v) {
         this.selectedItem = event.target.id, this.$emit('selected', this.selected);
         this.$emit('input', this.selectedItem);
         this.$emit('change', {
-          value: event.target.id,
+          value: event.target.id.replace(this.group, ''),
           srcEvent: event
         });
       }
@@ -441,7 +441,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "type": "radio"
       },
       domProps: {
-        "value": label.name + _vm.group
+        "value": label.name
       },
       on: {
         "change": function($event) {
