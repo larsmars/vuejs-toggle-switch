@@ -228,7 +228,7 @@ var px = function px(v) {
 
   watch: {
     value: function value(val) {
-      this.selectedItem = val + group;
+      this.selectedItem = val + this.group;
     }
   },
   methods: {
@@ -438,7 +438,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "disabled": _vm.defaultOptions.items.disabled,
         "id": label.name + _vm.group,
-        "name": _vm.group,
         "type": "radio"
       },
       domProps: {
