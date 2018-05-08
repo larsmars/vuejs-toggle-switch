@@ -174,7 +174,7 @@ var px = function px(v) {
       type: String,
       required: false
     },
-    key: {
+    group: {
       type: String,
       required: false,
       default: 'switch'
@@ -439,7 +439,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "disabled": _vm.defaultOptions.items.disabled,
         "id": label.name,
-        "name": _vm.key,
+        "name": _vm.group,
         "type": "radio"
       },
       domProps: {
