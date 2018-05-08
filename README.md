@@ -33,7 +33,7 @@ Use: (in your local .vue file/component, html section)
   @selected="selectedMethod() // This is optional
   v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
   :value="selectedMapOption" // This is optional 1-way binding (try not to use both 1-way and 2-way)
-  :group="switchGroup" // This is optional
+  :group="switchGroup" // This is optional, use if multiple toggle-switch on same page with same label names
   /> 
 
 <!-- Options struct: -->
