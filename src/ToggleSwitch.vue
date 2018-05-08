@@ -102,7 +102,7 @@ export default {
       this.mergeDefaultOptionsWithProp(this.options)
     }
     if (this.defaultOptions.items.preSelected !== 'unknown') {
-      this.selectedItem = this.defaultOptions.items.preSelected;
+      this.selectedItem = this.defaultOptions.items.preSelected + this.group;
       this.$emit('input', this.selectedItem);
     } else if (this.value) {
       this.selectedItem = this.value + this.group;
@@ -111,7 +111,7 @@ export default {
   },
   watch: {
     value: function (val) {
-      this.selectedItem = val
+      this.selectedItem = val + group
     }
   },
   methods: {
