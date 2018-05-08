@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v1.1.17
+v1.1.18
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -91,7 +91,7 @@ myOptions: {
 | delay           | Number            | .4          | Transition delay between labels is seconds |
 | squareCorners   | Boolean           | false       | Rounded corners of switch |
 | noBorder        | Boolean           | false       | Remove border |
-| group           | String            | switch      | Switch key/group name (optional) |
+| group           | String            | ''          | Switch key/group name (optional) |
 
 <i>Labels prop can be used with or without color and backgroundColor attr, if not used the common prop: 
 selectedColor and selectedBackgroundColor will be used for all labels.</i>

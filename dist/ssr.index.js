@@ -157,7 +157,6 @@ var px = function px(v) {
       items: {
         delay: .4,
         preSelected: 'unknown',
-        key: 'switch',
         disabled: false,
         labels: [{ name: 'Off', color: 'white', backgroundColor: 'red' }, { name: 'On', color: 'white', backgroundColor: 'green' }]
       }
@@ -177,7 +176,7 @@ var px = function px(v) {
     group: {
       type: String,
       required: false,
-      default: 'switch'
+      default: ''
     }
   },
   computed: {
@@ -222,7 +221,7 @@ var px = function px(v) {
       this.selectedItem = this.defaultOptions.items.preSelected;
       this.$emit('input', this.selectedItem);
     } else if (this.value) {
-      this.selectedItem = this.value;
+      this.selectedItem = this.value + this.group;
       this.$emit('input', this.selectedItem);
     }
   },

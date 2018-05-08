@@ -39,7 +39,6 @@ export default {
       items: {
         delay: .4,
         preSelected: 'unknown',
-        key: 'switch',
         disabled: false,
         labels: [
           {name: 'Off', color: 'white', backgroundColor: 'red'}, 
@@ -61,7 +60,7 @@ export default {
     group: {
       type: String,
       required: false,
-      default: 'switch'
+      default: ''
     }
   },
   computed: {
@@ -106,7 +105,7 @@ export default {
       this.selectedItem = this.defaultOptions.items.preSelected;
       this.$emit('input', this.selectedItem);
     } else if (this.value) {
-      this.selectedItem = this.value;
+      this.selectedItem = this.value + this.group;
       this.$emit('input', this.selectedItem);
     }
   },
