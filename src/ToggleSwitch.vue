@@ -2,8 +2,8 @@
   <div>
     <ul :style="switchStyle" class="toggle-switch" :class="{'square' : defaultOptions.layout.squareCorners}">
       <li :style="itemStyle" v-for="(label, index) in defaultOptions.items.labels" :key="index">
-        <input :disabled="defaultOptions.items.disabled" :id="label.name+group" :value="label.name" type="radio" @change.stop="toggle">
-        <label v-if="label.name+group=== selectedItem" :style="labelStyleSelected(label.color, label.backgroundColor)" :class="{ active: !defaultOptions.items.disabled }" :for="label.name+group" type="radio">{{label.name}}</label>
+        <input :disabled="defaultOptions.items.disabled" :id="label.name+group" :value="label.name" type="radio" v-on:click="toggle">
+        <label v-if="label.name+group === selectedItem" :style="labelStyleSelected(label.color, label.backgroundColor)" :class="{ active: !defaultOptions.items.disabled }" :for="label.name+group" type="radio">{{label.name}}</label>
         <label v-else :style="labelStyle" :class="{active: !defaultOptions.items.disabled }" :for="label.name+group" type="radio">{{label.name}}</label>
       </li>
     </ul>
@@ -33,7 +33,7 @@ export default {
       size: {
         fontSize: 14,
         height: 34,
-        padding: 4,
+        padding: 7,
         width: 100
       },
       items: {

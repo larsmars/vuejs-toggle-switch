@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v1.1.21
+v1.1.23
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -53,7 +53,7 @@ myOptions: {
   size: {
     fontSize: 14,
     height: 34,
-    padding: 4,
+    padding: 7,
     width: 100
   },
   items: {

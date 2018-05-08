@@ -151,7 +151,7 @@ var px = function px(v) {
       size: {
         fontSize: 14,
         height: 34,
-        padding: 4,
+        padding: 7,
         width: 100
       },
       items: {
@@ -444,10 +444,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "value": label.name
       },
       on: {
-        "change": function($event) {
-          $event.stopPropagation();
-          _vm.toggle($event)
-        }
+        "click": _vm.toggle
       }
     }), _vm._v(" "), (label.name + _vm.group === _vm.selectedItem) ? _c('label', {
       class: {
