@@ -112,6 +112,11 @@ export default {
   watch: {
     value: function (val) {
       this.selectedItem = val + this.group
+    },
+    options: function(val) {
+      if (val !== null && val !== undefined) {
+        this.mergeDefaultOptionsWithProp(val)
+      }
     }
   },
   methods: {
