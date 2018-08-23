@@ -1,22 +1,46 @@
 <template>
   <div>
-    <ul :style="switchStyle" class="toggle-switch" :class="{'square' : defaultOptions.layout.squareCorners}">
+    <ul
+      class="toggle-switch"
+      :class="{'square' : defaultOptions.layout.squareCorners}"
+      :style="switchStyle"
+    >
       <li :style="itemStyle" v-for="(label, index) in defaultOptions.items.labels" :key="index">
-        <input :disabled="defaultOptions.items.disabled" :id="label.name+group" :value="label.name" type="radio" v-on:click="toggle">
-        <label v-if="label.name+group === selectedItem" :style="labelStyleSelected(label.color, label.backgroundColor)" :class="{ active: !defaultOptions.items.disabled }" :for="label.name+group" type="radio">{{label.name}}</label>
-        <label v-else :style="labelStyle" :class="{active: !defaultOptions.items.disabled }" :for="label.name+group" type="radio">{{label.name}}</label>
+        <input
+          :disabled="defaultOptions.items.disabled"
+          :id="label.name+group" :value="label.name"
+          type="radio"
+          v-on:click="toggle"
+        >
+        <label 
+          v-if="label.name+group === selectedItem"
+          :style="labelStyleSelected(label.color, label.backgroundColor)"
+          :class="{ active: !defaultOptions.items.disabled }"
+          :for="label.name+group"
+          type="radio"
+        >
+          {{ label.name }}
+        </label>
+        <label
+          v-else
+          :style="labelStyle"
+          :class="{active: !defaultOptions.items.disabled }"
+          :for="label.name+group"
+          type="radio"
+        >
+          {{ label.name }}
+        </label>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-
 const s = x => x + 's'
 const px = v => v + 'px'
 
 export default {
-    created () {
+  created () {
     this.defaultOptions = {
       layout: {
         color: 'black',
@@ -47,6 +71,18 @@ export default {
       }
     } 
   },
+  mounted () {
+    if (this.options !== null && this.options !== undefined) {
+      this.mergeDefaultOptionsWithProp(this.options)
+    }
+    if (this.defaultOptions.items.preSelected !== 'unknown') {
+      this.selectedItem = this.defaultOptions.items.preSelected + this.group;
+      this.$emit('input', this.selectedItem);
+    } else if (this.value) {
+      this.selectedItem = this.value + this.group;
+      this.$emit('input', this.selectedItem);
+    }
+  },
   name: 'ToggleSwitch',
   props: {
     options: {
@@ -61,6 +97,13 @@ export default {
       type: String,
       required: false,
       default: ''
+    }
+  },
+  data () {
+    return {
+      selected: false,
+      selectedItem: 'unknown',
+      defaultOptions: Object
     }
   },
   computed: {
@@ -90,37 +133,8 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      selected: false,
-      selectedItem: 'unknown',
-      defaultOptions: Object
-    }
-  },
-  mounted () {
-    if (this.options !== null && this.options !== undefined) {
-      this.mergeDefaultOptionsWithProp(this.options)
-    }
-    if (this.defaultOptions.items.preSelected !== 'unknown') {
-      this.selectedItem = this.defaultOptions.items.preSelected + this.group;
-      this.$emit('input', this.selectedItem);
-    } else if (this.value) {
-      this.selectedItem = this.value + this.group;
-      this.$emit('input', this.selectedItem);
-    }
-  },
-  watch: {
-    value: function (val) {
-      this.selectedItem = val + this.group
-    },
-    options: function(val) {
-      if (val !== null && val !== undefined) {
-        this.mergeDefaultOptionsWithProp(val)
-      }
-    }
-  },
   methods: {
-    toggle (event) {
+    toggle: function (event) {
       if (!this.defaultOptions.items.disabled) {
         this.selected = true
         this.selectedItem = event.target.id,
@@ -155,6 +169,16 @@ export default {
         } else {
           result[option] = options[option]
         }
+      }
+    }
+  },
+  watch: {
+    value: function (val) {
+      this.selectedItem = val + this.group
+    },
+    options: function (val) {
+      if (val !== null && val !== undefined) {
+        this.mergeDefaultOptionsWithProp(val)
       }
     }
   }

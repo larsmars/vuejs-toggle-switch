@@ -124,7 +124,31 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var s = function s(x) {
   return x + 's';
@@ -162,6 +186,18 @@ var px = function px(v) {
       }
     };
   },
+  mounted: function mounted() {
+    if (this.options !== null && this.options !== undefined) {
+      this.mergeDefaultOptionsWithProp(this.options);
+    }
+    if (this.defaultOptions.items.preSelected !== 'unknown') {
+      this.selectedItem = this.defaultOptions.items.preSelected + this.group;
+      this.$emit('input', this.selectedItem);
+    } else if (this.value) {
+      this.selectedItem = this.value + this.group;
+      this.$emit('input', this.selectedItem);
+    }
+  },
 
   name: 'ToggleSwitch',
   props: {
@@ -179,6 +215,14 @@ var px = function px(v) {
       default: ''
     }
   },
+  data: function data() {
+    return {
+      selected: false,
+      selectedItem: 'unknown',
+      defaultOptions: Object
+    };
+  },
+
   computed: {
     switchStyle: function switchStyle() {
       return {
@@ -206,31 +250,6 @@ var px = function px(v) {
       };
     }
   },
-  data: function data() {
-    return {
-      selected: false,
-      selectedItem: 'unknown',
-      defaultOptions: Object
-    };
-  },
-  mounted: function mounted() {
-    if (this.options !== null && this.options !== undefined) {
-      this.mergeDefaultOptionsWithProp(this.options);
-    }
-    if (this.defaultOptions.items.preSelected !== 'unknown') {
-      this.selectedItem = this.defaultOptions.items.preSelected + this.group;
-      this.$emit('input', this.selectedItem);
-    } else if (this.value) {
-      this.selectedItem = this.value + this.group;
-      this.$emit('input', this.selectedItem);
-    }
-  },
-
-  watch: {
-    value: function value(val) {
-      this.selectedItem = val + this.group;
-    }
-  },
   methods: {
     toggle: function toggle(event) {
       if (!this.defaultOptions.items.disabled) {
@@ -243,7 +262,6 @@ var px = function px(v) {
         });
       }
     },
-
     labelStyleSelected: function labelStyleSelected(color, backgroundColor) {
       return {
         padding: px(this.defaultOptions.size.padding),
@@ -266,6 +284,16 @@ var px = function px(v) {
         } else {
           result[option] = options[option];
         }
+      }
+    }
+  },
+  watch: {
+    value: function value(val) {
+      this.selectedItem = val + this.group;
+    },
+    options: function options(val) {
+      if (val !== null && val !== undefined) {
+        this.mergeDefaultOptionsWithProp(val);
       }
     }
   }
@@ -455,7 +483,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "for": label.name + _vm.group,
         "type": "radio"
       }
-    }, [_vm._v(_vm._s(label.name))]) : _c('label', {
+    }, [_vm._v("\n        " + _vm._s(label.name) + "\n      ")]) : _c('label', {
       class: {
         active: !_vm.defaultOptions.items.disabled
       },
@@ -464,7 +492,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "for": label.name + _vm.group,
         "type": "radio"
       }
-    }, [_vm._v(_vm._s(label.name))])])
+    }, [_vm._v("\n        " + _vm._s(label.name) + "\n      ")])])
   }))])
 },staticRenderFns: []}
 
