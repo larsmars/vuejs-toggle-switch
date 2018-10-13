@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v1.1.24
+v1.1.29
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -33,6 +33,7 @@ Use: (in your local .vue file/component, html section)
   @selected="selectedMethod()" // This is optional
   v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
   :value="selectedMapOption" // This is optional 1-way binding (try not to use both 1-way and 2-way)
+  :name="name" // This is optional for input block
   :group="switchGroup" // This is optional, use if multiple toggle-switch on same page with same label names
   /> 
 
@@ -92,6 +93,7 @@ myOptions: {
 | squareCorners   | Boolean           | false       | Rounded corners of switch |
 | noBorder        | Boolean           | false       | Remove border |
 | group           | String            | ''          | Switch key/group name (optional) |
+| name            | String            | ''          | Name for input field (optional) can be used as ref for forms etc |
 
 <i>Labels prop can be used with or without color and backgroundColor attr, if not used the common prop: 
 selectedColor and selectedBackgroundColor will be used for all labels.</i>

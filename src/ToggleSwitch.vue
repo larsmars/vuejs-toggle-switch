@@ -8,15 +8,16 @@
       <li :style="itemStyle" v-for="(label, index) in defaultOptions.items.labels" :key="index">
         <input
           :disabled="defaultOptions.items.disabled"
-          :id="label.name+group" :value="label.name"
+          :id="label.name + group" :value="label.name"
+          :name="name"
           type="radio"
           v-on:click="toggle"
         >
         <label 
-          v-if="label.name+group === selectedItem"
+          v-if="label.name === selectedItem"
           :style="labelStyleSelected(label.color, label.backgroundColor)"
           :class="{ active: !defaultOptions.items.disabled }"
-          :for="label.name+group"
+          :for="label.name + group"
           type="radio"
         >
           {{ label.name }}
@@ -25,7 +26,7 @@
           v-else
           :style="labelStyle"
           :class="{active: !defaultOptions.items.disabled }"
-          :for="label.name+group"
+          :for="label.name + group"
           type="radio"
         >
           {{ label.name }}
@@ -57,7 +58,7 @@ export default {
       size: {
         fontSize: 14,
         height: 34,
-        padding: 7,
+        padding: 4,
         width: 100
       },
       items: {
@@ -76,10 +77,10 @@ export default {
       this.mergeDefaultOptionsWithProp(this.options)
     }
     if (this.defaultOptions.items.preSelected !== 'unknown') {
-      this.selectedItem = this.defaultOptions.items.preSelected + this.group;
+      this.selectedItem = this.defaultOptions.items.preSelected;
       this.$emit('input', this.selectedItem);
     } else if (this.value) {
-      this.selectedItem = this.value + this.group;
+      this.selectedItem = this.value;
       this.$emit('input', this.selectedItem);
     }
   },
@@ -90,6 +91,10 @@ export default {
       required: false
     },
     value: {
+      type: String,
+      required: false
+    },
+    name: {
       type: String,
       required: false
     },
@@ -137,7 +142,7 @@ export default {
     toggle: function (event) {
       if (!this.defaultOptions.items.disabled) {
         this.selected = true
-        this.selectedItem = event.target.id,
+        this.selectedItem = event.target.id.replace(this.group, ''),
         this.$emit('selected', this.selected)
         this.$emit('input', this.selectedItem)
         this.$emit('change', {
@@ -174,7 +179,7 @@ export default {
   },
   watch: {
     value: function (val) {
-      this.selectedItem = val + this.group
+      this.selectedItem = val
     },
     options: function (val) {
       if (val !== null && val !== undefined) {
