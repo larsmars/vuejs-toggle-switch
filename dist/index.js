@@ -149,6 +149,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //
 //
 //
+//
 
 var s = function s(x) {
   return x + 's';
@@ -175,7 +176,7 @@ var px = function px(v) {
       size: {
         fontSize: 14,
         height: 34,
-        padding: 7,
+        padding: 4,
         width: 100
       },
       items: {
@@ -191,10 +192,10 @@ var px = function px(v) {
       this.mergeDefaultOptionsWithProp(this.options);
     }
     if (this.defaultOptions.items.preSelected !== 'unknown') {
-      this.selectedItem = this.defaultOptions.items.preSelected + this.group;
+      this.selectedItem = this.defaultOptions.items.preSelected;
       this.$emit('input', this.selectedItem);
     } else if (this.value) {
-      this.selectedItem = this.value + this.group;
+      this.selectedItem = this.value;
       this.$emit('input', this.selectedItem);
     }
   },
@@ -206,6 +207,10 @@ var px = function px(v) {
       required: false
     },
     value: {
+      type: String,
+      required: false
+    },
+    name: {
       type: String,
       required: false
     },
@@ -254,7 +259,7 @@ var px = function px(v) {
     toggle: function toggle(event) {
       if (!this.defaultOptions.items.disabled) {
         this.selected = true;
-        this.selectedItem = event.target.id, this.$emit('selected', this.selected);
+        this.selectedItem = event.target.id.replace(this.group, ''), this.$emit('selected', this.selected);
         this.$emit('input', this.selectedItem);
         this.$emit('change', {
           value: event.target.id.replace(this.group, ''),
@@ -289,7 +294,7 @@ var px = function px(v) {
   },
   watch: {
     value: function value(val) {
-      this.selectedItem = val + this.group;
+      this.selectedItem = val;
     },
     options: function options(val) {
       if (val !== null && val !== undefined) {
@@ -466,6 +471,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "disabled": _vm.defaultOptions.items.disabled,
         "id": label.name + _vm.group,
+        "name": _vm.name,
         "type": "radio"
       },
       domProps: {
@@ -474,7 +480,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       on: {
         "click": _vm.toggle
       }
-    }), _vm._v(" "), (label.name + _vm.group === _vm.selectedItem) ? _c('label', {
+    }), _vm._v(" "), (label.name === _vm.selectedItem) ? _c('label', {
       class: {
         active: !_vm.defaultOptions.items.disabled
       },
