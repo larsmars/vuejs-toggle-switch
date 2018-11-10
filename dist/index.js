@@ -229,11 +229,6 @@ var px = function px(v) {
   },
 
   computed: {
-    toggleSwitchWrapper: function toggleSwitchWrapper() {
-      return {
-        height: px(this.defaultOptions.size.height)
-      };
-    },
     switchStyle: function switchStyle() {
       return {
         width: px(this.defaultOptions.size.width),
@@ -462,9 +457,7 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    style: (_vm.toggleSwitchWrapper)
-  }, [_c('ul', {
+  return _c('div', [_c('ul', {
     staticClass: "toggle-switch",
     class: {
       'square': _vm.defaultOptions.layout.squareCorners

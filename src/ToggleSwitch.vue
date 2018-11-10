@@ -1,5 +1,5 @@
 <template>
-  <div :style="toggleSwitchWrapper">
+  <div>
     <ul
       class="toggle-switch"
       :class="{'square' : defaultOptions.layout.squareCorners}"
@@ -112,11 +112,6 @@ export default {
     }
   },
   computed: {
-    toggleSwitchWrapper () {
-      return {
-        height: px(this.defaultOptions.size.height)
-      }
-    },
     switchStyle () {
       return {
         width: px(this.defaultOptions.size.width),
