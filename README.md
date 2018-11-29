@@ -106,6 +106,9 @@ selectedColor and selectedBackgroundColor will be used for all labels.</i>
 | selected | Triggered whenever user select switch item |
 | input | Triggered on mount if preSelected is set or value is set, and on toggle/change |
 
+### Todo 📌  
+* Pass class name to switch
+* Option to use id for labels not only name
 
 [0]: https://img.shields.io/badge/license-MIT-green.svg
 [1]: https://github.com/larsmars/vuejs-toggle-switch/blob/master/LICENSE
