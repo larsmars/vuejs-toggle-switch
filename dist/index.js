@@ -150,6 +150,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //
 //
 //
+//
 
 var s = function s(x) {
   return x + 's';
@@ -159,6 +160,31 @@ var px = function px(v) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'ToggleSwitch',
+  props: {
+    options: {
+      type: Object,
+      required: false
+    },
+    value: {
+      type: String,
+      required: false
+    },
+    name: {
+      type: String,
+      required: false
+    },
+    group: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
   created: function created() {
     this.defaultOptions = {
       layout: {
@@ -197,27 +223,6 @@ var px = function px(v) {
     } else if (this.value) {
       this.selectedItem = this.value;
       this.$emit('input', this.selectedItem);
-    }
-  },
-
-  name: 'ToggleSwitch',
-  props: {
-    options: {
-      type: Object,
-      required: false
-    },
-    value: {
-      type: String,
-      required: false
-    },
-    name: {
-      type: String,
-      required: false
-    },
-    group: {
-      type: String,
-      required: false,
-      default: ''
     }
   },
   data: function data() {
@@ -469,7 +474,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       style: (_vm.itemStyle)
     }, [_c('input', {
       attrs: {
-        "disabled": _vm.defaultOptions.items.disabled,
+        "disabled": _vm.defaultOptions.items.disabled || _vm.disabled,
         "id": label.name + _vm.group,
         "name": _vm.name,
         "type": "radio"
@@ -481,8 +486,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "click": _vm.toggle
       }
     }), _vm._v(" "), (label.name === _vm.selectedItem) ? _c('label', {
+      staticClass: "selected",
       class: {
-        active: !_vm.defaultOptions.items.disabled
+        active: !_vm.defaultOptions.items.disabled || _vm.disabled
       },
       style: (_vm.labelStyleSelected(label.color, label.backgroundColor)),
       attrs: {
@@ -491,7 +497,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_vm._v("\n        " + _vm._s(label.name) + "\n      ")]) : _c('label', {
       class: {
-        active: !_vm.defaultOptions.items.disabled
+        active: !_vm.defaultOptions.items.disabled || _vm.disabled
       },
       style: (_vm.labelStyle),
       attrs: {
@@ -499,7 +505,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "type": "radio"
       }
     }, [_vm._v("\n        " + _vm._s(label.name) + "\n      ")])])
-  }))])
+  }), 0)])
 },staticRenderFns: []}
 
 /***/ }),

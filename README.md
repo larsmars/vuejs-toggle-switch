@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v1.1.31
+v1.1.32
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -29,6 +29,7 @@ Use: (in your local .vue file/component, html section)
 
 <toggle-switch
   :options="myOptions"
+  :disabled="false" // optional, can use here on top level or in items section
   @change="updateMap($event.value)" // This is optional
   @selected="selectedMethod()" // This is optional
   v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
@@ -94,6 +95,7 @@ myOptions: {
 | noBorder        | Boolean           | false       | Remove border |
 | group           | String            | ''          | Switch key/group name (optional) |
 | name            | String            | ''          | Name for input field (optional) can be used as ref for forms etc |
+| disabled (prop) | Boolean           | false       | Disable switch on top level (prop) |
 
 <i>Labels prop can be used with or without color and backgroundColor attr, if not used the common prop: 
 selectedColor and selectedBackgroundColor will be used for all labels.</i>
@@ -106,6 +108,11 @@ selectedColor and selectedBackgroundColor will be used for all labels.</i>
 | selected | Triggered whenever user select switch item |
 | input | Triggered on mount if preSelected is set or value is set, and on toggle/change |
 
+### Todo 📌  
+* Pass class name to switch
+* Option to use id for labels not only name
+* Add disabled to top level
+* Add coditional class "slected" to label if selected
 
 [0]: https://img.shields.io/badge/license-MIT-green.svg
 [1]: https://github.com/larsmars/vuejs-toggle-switch/blob/master/LICENSE

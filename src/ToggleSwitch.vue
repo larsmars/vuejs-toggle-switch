@@ -7,7 +7,7 @@
     >
       <li :style="itemStyle" v-for="(label, index) in defaultOptions.items.labels" :key="index">
         <input
-          :disabled="defaultOptions.items.disabled"
+          :disabled="defaultOptions.items.disabled || disabled"
           :id="label.name + group" :value="label.name"
           :name="name"
           type="radio"
@@ -16,7 +16,8 @@
         <label 
           v-if="label.name === selectedItem"
           :style="labelStyleSelected(label.color, label.backgroundColor)"
-          :class="{ active: !defaultOptions.items.disabled }"
+          :class="{ active: !defaultOptions.items.disabled || disabled}"
+          class="selected"
           :for="label.name + group"
           type="radio"
         >
@@ -25,7 +26,7 @@
         <label
           v-else
           :style="labelStyle"
-          :class="{active: !defaultOptions.items.disabled }"
+          :class="{active: !defaultOptions.items.disabled || disabled}"
           :for="label.name + group"
           type="radio"
         >
@@ -41,6 +42,31 @@ const s = x => x + 's'
 const px = v => v + 'px'
 
 export default {
+  name: 'ToggleSwitch',
+  props: {
+    options: {
+      type: Object,
+      required: false
+    },
+    value: {
+      type: String,
+      required: false
+    },
+    name: {
+      type: String,
+      required: false
+    },
+    group: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
   created () {
     this.defaultOptions = {
       layout: {
@@ -82,26 +108,6 @@ export default {
     } else if (this.value) {
       this.selectedItem = this.value;
       this.$emit('input', this.selectedItem);
-    }
-  },
-  name: 'ToggleSwitch',
-  props: {
-    options: {
-      type: Object,
-      required: false
-    },
-    value: {
-      type: String,
-      required: false
-    },
-    name: {
-      type: String,
-      required: false
-    },
-    group: {
-      type: String,
-      required: false,
-      default: ''
     }
   },
   data () {
