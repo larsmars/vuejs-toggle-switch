@@ -3,7 +3,8 @@ import ToggleSwitch from './ToggleSwitch.vue'
 
 const plugin = {
   install(Vue, options) {
-  	Vue.component('ToggleSwitch', ToggleSwitch)
+    ToggleSwitch.applicationOptions = options;
+    Vue.component('ToggleSwitch', ToggleSwitch)
   }
 }
 

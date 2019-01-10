@@ -96,7 +96,11 @@ export default {
           {name: 'On', color: 'white', backgroundColor: 'green'}
         ]
       }
-    } 
+    }
+    
+    if (this.constructor.sealedOptions.applicationOptions) {
+      this.mergeDefaultOptionsWithProp(this.constructor.sealedOptions.applicationOptions)
+    }
   },
   mounted () {
     if (this.options !== null && this.options !== undefined) {

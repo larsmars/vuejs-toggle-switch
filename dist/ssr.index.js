@@ -212,6 +212,10 @@ var px = function px(v) {
         labels: [{ name: 'Off', color: 'white', backgroundColor: 'red' }, { name: 'On', color: 'white', backgroundColor: 'green' }]
       }
     };
+
+    if (this.constructor.sealedOptions.applicationOptions) {
+      this.mergeDefaultOptionsWithProp(this.constructor.sealedOptions.applicationOptions);
+    }
   },
   mounted: function mounted() {
     if (this.options !== null && this.options !== undefined) {
@@ -324,6 +328,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var plugin = {
   install: function install(Vue, options) {
+    __WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue___default.a.applicationOptions = options;
     Vue.component('ToggleSwitch', __WEBPACK_IMPORTED_MODULE_1__ToggleSwitch_vue___default.a);
   }
 };
