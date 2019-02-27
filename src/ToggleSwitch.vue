@@ -3,9 +3,13 @@
     <ul
       class="toggle-switch"
       :class="{'square' : defaultOptions.layout.squareCorners}"
-      :style="switchStyle"
+      :style="toggleSwitchStyle"
     >
-      <li :style="itemStyle" v-for="(label, index) in defaultOptions.items.labels" :key="index">
+      <li
+        :style="itemStyle"
+        v-for="(label, index) in defaultOptions.items.labels"
+        :key="index"
+      >
         <input
           :disabled="defaultOptions.items.disabled || disabled"
           :id="label.name + group" :value="label.name"
@@ -39,7 +43,7 @@
 
 <script>
 const s = x => x + 's'
-const px = v => v + 'px'
+const rem = v => v + 'rem'
 
 export default {
   name: 'ToggleSwitch',
@@ -67,7 +71,7 @@ export default {
       default: false
     }
   },
-  created () {
+  created() {
     this.defaultOptions = {
       layout: {
         color: 'black',
@@ -82,10 +86,10 @@ export default {
         noBorder: false
       },
       size: {
-        fontSize: 14,
-        height: 34,
-        padding: 4,
-        width: 100
+        fontSize: 1.5,
+        height: 3.25,
+        padding: 0.5,
+        width: 10
       },
       items: {
         delay: .4,
@@ -98,19 +102,19 @@ export default {
       }
     } 
   },
-  mounted () {
+  mounted() {
     if (this.options !== null && this.options !== undefined) {
       this.mergeDefaultOptionsWithProp(this.options)
     }
     if (this.defaultOptions.items.preSelected !== 'unknown') {
-      this.selectedItem = this.defaultOptions.items.preSelected;
-      this.$emit('input', this.selectedItem);
+      this.selectedItem = this.defaultOptions.items.preSelected
+      this.$emit('input', this.selectedItem)
     } else if (this.value) {
-      this.selectedItem = this.value;
-      this.$emit('input', this.selectedItem);
+      this.selectedItem = this.value
+      this.$emit('input', this.selectedItem)
     }
   },
-  data () {
+  data() {
     return {
       selected: false,
       selectedItem: 'unknown',
@@ -118,24 +122,24 @@ export default {
     }
   },
   computed: {
-    switchStyle () {
+    toggleSwitchStyle() {
       return {
-        width: px(this.defaultOptions.size.width),
-        height: px(this.defaultOptions.size.height)
+        width: rem(this.defaultOptions.size.width),
+        height: rem(this.defaultOptions.size.height)
       }
     },
-    itemStyle () {
+    itemStyle() {
       return {
-        height: px(this.defaultOptions.size.height),
-        width: px(this.defaultOptions.size.width),
+        width: rem(this.defaultOptions.size.width),
+        height: rem(this.defaultOptions.size.height),
         fontFamily: this.defaultOptions.layout.fontFamily,
-        fontSize: px(this.defaultOptions.size.fontSize),
+        fontSize: rem(this.defaultOptions.size.fontSize),
         textAlign: 'center'
       }
     },
-    labelStyle () {
+    labelStyle() {
       return {
-        padding: px(this.defaultOptions.size.padding),
+        padding: rem(this.defaultOptions.size.padding),
         borderColor: this.defaultOptions.layout.noBorder ? 'transparent' : this.defaultOptions.layout.borderColor,
         backgroundColor: this.defaultOptions.layout.backgroundColor,
         color: this.defaultOptions.layout.color,
@@ -145,10 +149,10 @@ export default {
     }
   },
   methods: {
-    toggle: function (event) {
+    toggle(event) {
       if (!this.defaultOptions.items.disabled) {
         this.selected = true
-        this.selectedItem = event.target.id.replace(this.group, ''),
+        this.selectedItem = event.target.id.replace(this.group, '')
         this.$emit('selected', this.selected)
         this.$emit('input', this.selectedItem)
         this.$emit('change', {
@@ -157,9 +161,9 @@ export default {
         })
       }
     },
-    labelStyleSelected: function (color, backgroundColor) {
+    labelStyleSelected(color, backgroundColor) {
       return {
-        padding: px(this.defaultOptions.size.padding),
+        padding: rem(this.defaultOptions.size.padding),
         borderColor: this.defaultOptions.layout.noBorder ? 'transparent' : this.defaultOptions.layout.borderColor,
         fontWeight: this.defaultOptions.layout.fontWeightSelected,
         backgroundColor: backgroundColor !== undefined ? backgroundColor : this.defaultOptions.layout.selectedBackgroundColor,
@@ -167,7 +171,7 @@ export default {
         transition: s(this.defaultOptions.items.delay)
       }
     },
-    mergeDefaultOptionsWithProp: function (options) {
+    mergeDefaultOptionsWithProp(options) {
       var result = this.defaultOptions
       for (var option in options)
       {
@@ -184,10 +188,10 @@ export default {
     }
   },
   watch: {
-    value: function (val) {
+    value(val) {
       this.selectedItem = val
     },
-    options: function (val) {
+    options(val) {
       if (val !== null && val !== undefined) {
         this.mergeDefaultOptionsWithProp(val)
       }
@@ -201,9 +205,13 @@ ul {
   list-style: none;
 }
 
+label {
+  margin: 0;
+}
+
 .toggle-switch {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   display: inline-flex;
 }
 

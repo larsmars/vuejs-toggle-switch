@@ -151,12 +151,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //
 //
 //
+//
+//
+//
+//
 
 var s = function s(x) {
   return x + 's';
 };
-var px = function px(v) {
-  return v + 'px';
+var rem = function rem(v) {
+  return v + 'rem';
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -200,10 +204,10 @@ var px = function px(v) {
         noBorder: false
       },
       size: {
-        fontSize: 14,
-        height: 34,
-        padding: 4,
-        width: 100
+        fontSize: 1.5,
+        height: 3.25,
+        padding: 0.5,
+        width: 10
       },
       items: {
         delay: .4,
@@ -234,24 +238,24 @@ var px = function px(v) {
   },
 
   computed: {
-    switchStyle: function switchStyle() {
+    toggleSwitchStyle: function toggleSwitchStyle() {
       return {
-        width: px(this.defaultOptions.size.width),
-        height: px(this.defaultOptions.size.height)
+        width: rem(this.defaultOptions.size.width),
+        height: rem(this.defaultOptions.size.height)
       };
     },
     itemStyle: function itemStyle() {
       return {
-        height: px(this.defaultOptions.size.height),
-        width: px(this.defaultOptions.size.width),
+        width: rem(this.defaultOptions.size.width),
+        height: rem(this.defaultOptions.size.height),
         fontFamily: this.defaultOptions.layout.fontFamily,
-        fontSize: px(this.defaultOptions.size.fontSize),
+        fontSize: rem(this.defaultOptions.size.fontSize),
         textAlign: 'center'
       };
     },
     labelStyle: function labelStyle() {
       return {
-        padding: px(this.defaultOptions.size.padding),
+        padding: rem(this.defaultOptions.size.padding),
         borderColor: this.defaultOptions.layout.noBorder ? 'transparent' : this.defaultOptions.layout.borderColor,
         backgroundColor: this.defaultOptions.layout.backgroundColor,
         color: this.defaultOptions.layout.color,
@@ -264,7 +268,8 @@ var px = function px(v) {
     toggle: function toggle(event) {
       if (!this.defaultOptions.items.disabled) {
         this.selected = true;
-        this.selectedItem = event.target.id.replace(this.group, ''), this.$emit('selected', this.selected);
+        this.selectedItem = event.target.id.replace(this.group, '');
+        this.$emit('selected', this.selected);
         this.$emit('input', this.selectedItem);
         this.$emit('change', {
           value: event.target.id.replace(this.group, ''),
@@ -274,7 +279,7 @@ var px = function px(v) {
     },
     labelStyleSelected: function labelStyleSelected(color, backgroundColor) {
       return {
-        padding: px(this.defaultOptions.size.padding),
+        padding: rem(this.defaultOptions.size.padding),
         borderColor: this.defaultOptions.layout.noBorder ? 'transparent' : this.defaultOptions.layout.borderColor,
         fontWeight: this.defaultOptions.layout.fontWeightSelected,
         backgroundColor: backgroundColor !== undefined ? backgroundColor : this.defaultOptions.layout.selectedBackgroundColor,
@@ -339,7 +344,7 @@ exports = module.exports = __webpack_require__(5)();
 
 
 // module
-exports.push([module.i, "ul[data-v-46bfeb61]{list-style:none}.toggle-switch[data-v-46bfeb61]{padding:0;margin:0;display:inline-flex}.square li:first-child label[data-v-46bfeb61]{border-top-left-radius:0!important;border-bottom-left-radius:0!important}.square li:last-child label[data-v-46bfeb61]{border-top-right-radius:0!important;border-bottom-right-radius:0!important}.toggle-switch li[data-v-46bfeb61]{position:relative}.toggle-switch li:first-child label[data-v-46bfeb61]{border:1px solid;border-top-left-radius:5px;border-bottom-left-radius:5px}.toggle-switch li:last-child label[data-v-46bfeb61]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-top-right-radius:5px;border-bottom-right-radius:5px}.toggle-switch input[data-v-46bfeb61],.toggle-switch label[data-v-46bfeb61]{display:block;position:absolute;top:0;left:0;right:0;bottom:0}.toggle-switch input[type=radio][data-v-46bfeb61]{opacity:.01;z-index:100}.toggle-switch li:not(:first-child):not(:last-child) label[data-v-46bfeb61]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid}.active[data-v-46bfeb61]{cursor:pointer}", ""]);
+exports.push([module.i, "ul[data-v-46bfeb61]{list-style:none}label[data-v-46bfeb61]{margin:0}.toggle-switch[data-v-46bfeb61]{padding:0;margin:0;display:inline-flex}.square li:first-child label[data-v-46bfeb61]{border-top-left-radius:0!important;border-bottom-left-radius:0!important}.square li:last-child label[data-v-46bfeb61]{border-top-right-radius:0!important;border-bottom-right-radius:0!important}.toggle-switch li[data-v-46bfeb61]{position:relative}.toggle-switch li:first-child label[data-v-46bfeb61]{border:1px solid;border-top-left-radius:5px;border-bottom-left-radius:5px}.toggle-switch li:last-child label[data-v-46bfeb61]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-top-right-radius:5px;border-bottom-right-radius:5px}.toggle-switch input[data-v-46bfeb61],.toggle-switch label[data-v-46bfeb61]{display:block;position:absolute;top:0;left:0;right:0;bottom:0}.toggle-switch input[type=radio][data-v-46bfeb61]{opacity:.01;z-index:100}.toggle-switch li:not(:first-child):not(:last-child) label[data-v-46bfeb61]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid}.active[data-v-46bfeb61]{cursor:pointer}", ""]);
 
 // exports
 
@@ -467,7 +472,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: {
       'square': _vm.defaultOptions.layout.squareCorners
     },
-    style: (_vm.switchStyle)
+    style: (_vm.toggleSwitchStyle)
   }, _vm._l((_vm.defaultOptions.items.labels), function(label, index) {
     return _c('li', {
       key: index,
