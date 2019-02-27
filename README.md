@@ -111,8 +111,8 @@ selectedColor and selectedBackgroundColor will be used for all labels.</i>
 ### Todo 📌  
 * Pass class name to switch
 * Option to use id for labels not only name
-* Add disabled to top level
-* Add coditional class "slected" to label if selected
+* ~~Add disabled to top level~~
+* ~~Add coditional class "slected" to label if selected~~
 
 [0]: https://img.shields.io/badge/license-MIT-green.svg
 [1]: https://github.com/larsmars/vuejs-toggle-switch/blob/master/LICENSE
