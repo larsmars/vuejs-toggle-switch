@@ -74,9 +74,9 @@ myOptions: {
 
 | Name            | Type              | Default     | Description                        |
 | ---             | ---               | ---         | ---                                |
-| width           | Number            | 100         | Width of labels |
-| height          | Number            | 34          | Height |
-| padding         | Number            | 4           | Adjust text location in label with this |
+| width           | Number            | 10          | Width of labels |
+| height          | Number            | 3.25        | Height |
+| padding         | Number            | 0.5         | Adjust text location in label with this |
 | backgroundColor | String            | lightgray   | Background color (not selected) |
 | color           | String            | black       | Text color (not selected)|
 | borderColor     | String            | gray        | border color |
@@ -85,7 +85,7 @@ myOptions: {
 | fontFamily      | String            | Arial       | Font of label text |
 | fontWeight      | String            | normal      | Font weight item (not selected) |
 | fontWeightSelected      | String    | bold        | Font weight selected item |
-| fontSize        | Number            | 14          | Text size |
+| fontSize        | Number            | 1.5         | Text size |
 | disabled        | Boolean           | false       | Disable switch |
 | preSelected     | String            | On     | Set (pre) selected label |
 | labels          | Array             | Off/On      | Labels for switch, name property is mandatory|
