@@ -17,7 +17,7 @@
           type="radio"
           v-on:click="toggle"
         >
-        <label 
+        <label
           v-if="label.name === selectedItem"
           :style="labelStyleSelected(label.color, label.backgroundColor)"
           :class="{ active: !defaultOptions.items.disabled || disabled}"
@@ -71,7 +71,7 @@ export default {
       default: false
     }
   },
-  created() {
+  created () {
     this.defaultOptions = {
       layout: {
         color: 'black',
@@ -92,17 +92,17 @@ export default {
         width: 10
       },
       items: {
-        delay: .4,
+        delay: 0.4,
         preSelected: 'unknown',
         disabled: false,
         labels: [
-          {name: 'Off', color: 'white', backgroundColor: 'red'}, 
-          {name: 'On', color: 'white', backgroundColor: 'green'}
+          { name: 'Off', color: 'white', backgroundColor: 'red' },
+          { name: 'On', color: 'white', backgroundColor: 'green' }
         ]
       }
-    } 
+    }
   },
-  mounted() {
+  mounted () {
     if (this.options !== null && this.options !== undefined) {
       this.mergeDefaultOptionsWithProp(this.options)
     }
@@ -114,7 +114,7 @@ export default {
       this.$emit('input', this.selectedItem)
     }
   },
-  data() {
+  data () {
     return {
       selected: false,
       selectedItem: 'unknown',
@@ -122,13 +122,13 @@ export default {
     }
   },
   computed: {
-    toggleSwitchStyle() {
+    toggleSwitchStyle () {
       return {
         width: rem(this.defaultOptions.size.width),
         height: rem(this.defaultOptions.size.height)
       }
     },
-    itemStyle() {
+    itemStyle () {
       return {
         width: rem(this.defaultOptions.size.width),
         height: rem(this.defaultOptions.size.height),
@@ -137,7 +137,7 @@ export default {
         textAlign: 'center'
       }
     },
-    labelStyle() {
+    labelStyle () {
       return {
         padding: rem(this.defaultOptions.size.padding),
         borderColor: this.defaultOptions.layout.noBorder ? 'transparent' : this.defaultOptions.layout.borderColor,
@@ -149,7 +149,7 @@ export default {
     }
   },
   methods: {
-    toggle(event) {
+    toggle (event) {
       if (!this.defaultOptions.items.disabled) {
         this.selected = true
         this.selectedItem = event.target.id.replace(this.group, '')
@@ -161,7 +161,7 @@ export default {
         })
       }
     },
-    labelStyleSelected(color, backgroundColor) {
+    labelStyleSelected (color, backgroundColor) {
       return {
         padding: rem(this.defaultOptions.size.padding),
         borderColor: this.defaultOptions.layout.noBorder ? 'transparent' : this.defaultOptions.layout.borderColor,
@@ -171,11 +171,10 @@ export default {
         transition: s(this.defaultOptions.items.delay)
       }
     },
-    mergeDefaultOptionsWithProp(options) {
+    mergeDefaultOptionsWithProp (options) {
       var result = this.defaultOptions
-      for (var option in options)
-      {
-        if (options[option] !== null && typeof(options[option]) === 'object') {
+      for (var option in options) {
+        if (options[option] !== null && typeof (options[option]) === 'object') {
           for (var subOption in options[option]) {
             if (options[option][subOption] !== undefined && options[option][subOption] !== null) {
               result[option][subOption] = options[option][subOption]
@@ -188,10 +187,10 @@ export default {
     }
   },
   watch: {
-    value(val) {
+    value (val) {
       this.selectedItem = val
     },
-    options(val) {
+    options (val) {
       if (val !== null && val !== undefined) {
         this.mergeDefaultOptionsWithProp(val)
       }
