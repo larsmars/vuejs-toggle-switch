@@ -11,6 +11,8 @@ v1.3.1
 
 Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
+NB! Version 1.2.32 now use rem instead of px
+
 ## Setup
 install:
 ```bash
