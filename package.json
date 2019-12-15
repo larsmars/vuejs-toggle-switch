@@ -1,7 +1,7 @@
 {
   "name": "vuejs-toggle-switch",
   "description": "A toggle switch component for Vue.js",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "LMH, lars@softwarefun.no , softwarefun.no",
   "license": "MIT",
   "homepage": "https://github.com/larsmars/vuejs-toggle-switch#readme",
@@ -19,11 +19,10 @@
   "bugs": {
     "url": "https://github.com/larsmars/vuejs-toggle-switch/issues"
   },
-  "dependencies": {},
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.2",
     "@vue/cli-plugin-eslint": "^3.9.2",
-    "@vue/cli-service": "^3.9.2",
+    "@vue/cli-service": "^4.1.1",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.2",
     "eslint": "^5.16.0",
