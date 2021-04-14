@@ -11,7 +11,7 @@ v1.3.3
 
 Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
-NB! Version 1.2.32 and later use rem instead
+NB! Version 1.2.32 and later use rem instead of px
 
 ## Setup
 install:
