@@ -12,13 +12,13 @@
       >
         <input
           :disabled="defaultOptions.items.disabled || disabled"
-          :id="label.name + group" :value="label.name"
+          :id="label.name + group" :value="getLabelValue(label)"
           :name="name"
           type="radio"
-          v-on:click="toggle"
+          v-on:click="toggle(getLabelValue(label), $event)"
         >
         <label
-          v-if="label.name === selectedItem"
+          v-if="getLabelValue(label) === selectedItem"
           :style="labelStyleSelected(label.color, label.backgroundColor)"
           :class="{ active: !defaultOptions.items.disabled || disabled}"
           class="selected"
@@ -109,7 +109,7 @@ export default {
     if (this.defaultOptions.items.preSelected !== 'unknown') {
       this.selectedItem = this.defaultOptions.items.preSelected
       this.$emit('input', this.selectedItem)
-    } else if (this.value) {
+    } else if (this.value !== null) {
       this.selectedItem = this.value
       this.$emit('input', this.selectedItem)
     }
@@ -149,14 +149,14 @@ export default {
     }
   },
   methods: {
-    toggle (event) {
+    toggle (value, event) {
       if (!this.defaultOptions.items.disabled) {
         this.selected = true
-        this.selectedItem = event.target.id.replace(this.group, '')
+        this.selectedItem = value
         this.$emit('selected', this.selected)
         this.$emit('input', this.selectedItem)
         this.$emit('change', {
-          value: event.target.id.replace(this.group, ''),
+          value: value,
           srcEvent: event
         })
       }
@@ -184,6 +184,9 @@ export default {
           result[option] = options[option]
         }
       }
+    },
+    getLabelValue(label) {
+      return typeof label.value !== 'undefined' ? label.value : label.name
     }
   },
   watch: {
