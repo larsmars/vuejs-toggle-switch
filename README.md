@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v1.3.2
+v1.3.3
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -11,7 +11,7 @@ v1.3.2
 
 Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
-NB! Version 1.2.32 now use rem instead of px
+NB! Version 1.2.32 and later use rem instead
 
 ## Setup
 install:
@@ -109,12 +109,6 @@ selectedColor and selectedBackgroundColor will be used for all labels.</i>
 | change | Triggered on toggle, user selects switch option, returns current value. @change="vmValueItem = $event.value" |
 | selected | Triggered whenever user select switch item |
 | input | Triggered on mount if preSelected is set or value is set, and on toggle/change |
-
-### Todo 📌  
-* Pass class name to switch
-* Option to use id for labels not only name
-* ~~Add disabled to top level~~
-* ~~Add coditional class "slected" to label if selected~~
 
 [0]: https://img.shields.io/badge/license-MIT-green.svg
 [1]: https://github.com/larsmars/vuejs-toggle-switch/blob/master/LICENSE
