@@ -3724,7 +3724,7 @@ handlePrototype(DOMTokenListPrototype, 'DOMTokenList');
 
 /***/ }),
 
-/***/ 8392:
+/***/ 9786:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3738,7 +3738,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "ul[data-v-3cf97114]{list-style:none}label[data-v-3cf97114]{margin:0}.toggle-switch[data-v-3cf97114]{padding:0;margin:0;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.square li:first-child label[data-v-3cf97114]{border-top-left-radius:0!important;border-bottom-left-radius:0!important}.square li:last-child label[data-v-3cf97114]{border-top-right-radius:0!important;border-bottom-right-radius:0!important}.toggle-switch li[data-v-3cf97114]{position:relative}.toggle-switch li:first-child label[data-v-3cf97114]{border:1px solid;border-top-left-radius:5px;border-bottom-left-radius:5px}.toggle-switch li:last-child label[data-v-3cf97114]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-top-right-radius:5px;border-bottom-right-radius:5px}.toggle-switch input[data-v-3cf97114],.toggle-switch label[data-v-3cf97114]{display:block;position:absolute;top:0;left:0;right:0;bottom:0}.toggle-switch input[type=radio][data-v-3cf97114]{opacity:.01;z-index:100}.toggle-switch li:not(:first-child):not(:last-child) label[data-v-3cf97114]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid}.active[data-v-3cf97114]{cursor:pointer}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "ul[data-v-4981b1de]{list-style:none}label[data-v-4981b1de]{margin:0}.toggle-switch[data-v-4981b1de]{padding:0;margin:0;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.square li:first-child label[data-v-4981b1de]{border-top-left-radius:0!important;border-bottom-left-radius:0!important}.square li:last-child label[data-v-4981b1de]{border-top-right-radius:0!important;border-bottom-right-radius:0!important}.toggle-switch li[data-v-4981b1de]{position:relative}.toggle-switch li:first-child label[data-v-4981b1de]{border:1px solid;border-top-left-radius:5px;border-bottom-left-radius:5px}.toggle-switch li:last-child label[data-v-4981b1de]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid;border-top-right-radius:5px;border-bottom-right-radius:5px}.toggle-switch input[data-v-4981b1de],.toggle-switch label[data-v-4981b1de]{display:block;position:absolute;top:0;left:0;right:0;bottom:0}.toggle-switch input[type=radio][data-v-4981b1de]{opacity:.01;z-index:100}.toggle-switch li:not(:first-child):not(:last-child) label[data-v-4981b1de]{border-right:1px solid;border-top:1px solid;border-bottom:1px solid}.active[data-v-4981b1de]{cursor:pointer}", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
@@ -3866,19 +3866,19 @@ module.exports = function (i) {
 
 /***/ }),
 
-/***/ 3497:
+/***/ 9281:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(8392);
+var content = __webpack_require__(9786);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.id, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = (__webpack_require__(4402)/* ["default"] */ .Z)
-var update = add("66494f8a", content, true, {"sourceMap":false,"shadowMode":false});
+var update = add("57fa4f48", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
@@ -4282,8 +4282,8 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__(7203);
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
-;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/components/ToggleSwitch.vue?vue&type=template&id=3cf97114&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('ul',{staticClass:"toggle-switch",class:{'square' : _vm.defaultOptions.layout.squareCorners},style:(_vm.toggleSwitchStyle)},_vm._l((_vm.defaultOptions.items.labels),function(label,index){return _c('li',{key:index,style:(_vm.itemStyle)},[_c('input',{attrs:{"disabled":_vm.defaultOptions.items.disabled || _vm.disabled,"id":label.name + _vm.group,"name":_vm.name,"type":"radio"},domProps:{"value":label.name},on:{"click":_vm.toggle}}),(label.name === _vm.selectedItem)?_c('label',{staticClass:"selected",class:{ active: !_vm.defaultOptions.items.disabled || _vm.disabled},style:(_vm.labelStyleSelected(label.color, label.backgroundColor)),attrs:{"for":label.name + _vm.group,"type":"radio"}},[_vm._v(" "+_vm._s(label.name)+" ")]):_c('label',{class:{active: !_vm.defaultOptions.items.disabled || _vm.disabled},style:(_vm.labelStyle),attrs:{"for":label.name + _vm.group,"type":"radio"}},[_vm._v(" "+_vm._s(label.name)+" ")])])}),0)])}
+;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/components/ToggleSwitch.vue?vue&type=template&id=4981b1de&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('ul',{staticClass:"toggle-switch",class:{'square' : _vm.defaultOptions.layout.squareCorners},style:(_vm.toggleSwitchStyle)},_vm._l((_vm.defaultOptions.config.items),function(item,index){return _c('li',{key:index,style:(_vm.itemStyle)},[_c('input',{attrs:{"disabled":_vm.defaultOptions.config.disabled || _vm.disabled,"id":item.value + _vm.group,"name":_vm.name,"type":"radio"},domProps:{"value":item.value},on:{"click":_vm.toggle}}),(item.value === _vm.selectedItem)?_c('label',{staticClass:"selected",class:{ active: !_vm.defaultOptions.config.disabled || _vm.disabled},style:(_vm.labelStyleSelected(item.color, item.backgroundColor)),attrs:{"for":item.value + _vm.group,"type":"radio"}},[_vm._v(" "+_vm._s(item.name)+" ")]):_c('label',{class:{active: !_vm.defaultOptions.config.disabled || _vm.disabled},style:(_vm.labelStyle),attrs:{"for":item.value + _vm.group,"type":"radio"}},[_vm._v(" "+_vm._s(item.name)+" ")])])}),0)])}
 var staticRenderFns = []
 
 
@@ -4424,16 +4424,18 @@ var rem = function rem(v) {
         padding: 0.5,
         width: 10
       },
-      items: {
+      config: {
         delay: 0.4,
         preSelected: 'unknown',
         disabled: false,
-        labels: [{
+        items: [{
           name: 'Off',
+          value: "0",
           color: 'white',
           backgroundColor: 'red'
         }, {
           name: 'On',
+          value: "1",
           color: 'white',
           backgroundColor: 'green'
         }]
@@ -4445,8 +4447,8 @@ var rem = function rem(v) {
       this.mergeDefaultOptionsWithProp(this.options);
     }
 
-    if (this.defaultOptions.items.preSelected !== 'unknown') {
-      this.selectedItem = this.defaultOptions.items.preSelected;
+    if (this.defaultOptions.config.preSelected !== 'unknown') {
+      this.selectedItem = this.defaultOptions.config.preSelected;
       this.$emit('input', this.selectedItem);
     } else if (this.value) {
       this.selectedItem = this.value;
@@ -4483,13 +4485,13 @@ var rem = function rem(v) {
         backgroundColor: this.defaultOptions.layout.backgroundColor,
         color: this.defaultOptions.layout.color,
         fontWeight: this.defaultOptions.layout.fontWeight,
-        transition: s(this.defaultOptions.items.delay)
+        transition: s(this.defaultOptions.config.delay)
       };
     }
   },
   methods: {
     toggle: function toggle(event) {
-      if (!this.defaultOptions.items.disabled) {
+      if (!this.defaultOptions.config.disabled) {
         this.selected = true;
         this.selectedItem = event.target.id.replace(this.group, '');
         this.$emit('selected', this.selected);
@@ -4507,7 +4509,7 @@ var rem = function rem(v) {
         fontWeight: this.defaultOptions.layout.fontWeightSelected,
         backgroundColor: backgroundColor !== undefined ? backgroundColor : this.defaultOptions.layout.selectedBackgroundColor,
         color: color !== undefined ? color : this.defaultOptions.layout.selectedColor,
-        transition: s(this.defaultOptions.items.delay)
+        transition: s(this.defaultOptions.config.delay)
       };
     },
     mergeDefaultOptionsWithProp: function mergeDefaultOptionsWithProp(options) {
@@ -4539,9 +4541,9 @@ var rem = function rem(v) {
 });
 ;// CONCATENATED MODULE: ./src/components/ToggleSwitch.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_ToggleSwitchvue_type_script_lang_js_ = (ToggleSwitchvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-style-loader/index.js??clonedRuleSet-62[0].rules[0].use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-62[0].rules[0].use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-62[0].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-62[0].rules[0].use[3]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-62[0].rules[0].use[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/components/ToggleSwitch.vue?vue&type=style&index=0&id=3cf97114&lang=scss&scoped=true&
-var ToggleSwitchvue_type_style_index_0_id_3cf97114_lang_scss_scoped_true_ = __webpack_require__(3497);
-;// CONCATENATED MODULE: ./src/components/ToggleSwitch.vue?vue&type=style&index=0&id=3cf97114&lang=scss&scoped=true&
+// EXTERNAL MODULE: ./node_modules/vue-style-loader/index.js??clonedRuleSet-62[0].rules[0].use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-62[0].rules[0].use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-62[0].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-62[0].rules[0].use[3]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-62[0].rules[0].use[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/components/ToggleSwitch.vue?vue&type=style&index=0&id=4981b1de&lang=scss&scoped=true&
+var ToggleSwitchvue_type_style_index_0_id_4981b1de_lang_scss_scoped_true_ = __webpack_require__(9281);
+;// CONCATENATED MODULE: ./src/components/ToggleSwitch.vue?vue&type=style&index=0&id=4981b1de&lang=scss&scoped=true&
 
 ;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/runtime/componentNormalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
@@ -4658,7 +4660,7 @@ var component = normalizeComponent(
   staticRenderFns,
   false,
   null,
-  "3cf97114",
+  "4981b1de",
   null
   
 )

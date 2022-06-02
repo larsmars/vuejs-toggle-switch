@@ -7,34 +7,34 @@
     >
       <li
         :style="itemStyle"
-        v-for="(label, index) in defaultOptions.items.labels"
+        v-for="(item, index) in defaultOptions.config.items"
         :key="index"
       >
         <input
-          :disabled="defaultOptions.items.disabled || disabled"
-          :id="label.name + group" :value="label.name"
+          :disabled="defaultOptions.config.disabled || disabled"
+          :id="item.value + group" :value="item.value"
           :name="name"
           type="radio"
           v-on:click="toggle"
         >
         <label
-          v-if="label.name === selectedItem"
-          :style="labelStyleSelected(label.color, label.backgroundColor)"
-          :class="{ active: !defaultOptions.items.disabled || disabled}"
+          v-if="item.value === selectedItem"
+          :style="labelStyleSelected(item.color, item.backgroundColor)"
+          :class="{ active: !defaultOptions.config.disabled || disabled}"
           class="selected"
-          :for="label.name + group"
+          :for="item.value + group"
           type="radio"
         >
-          {{ label.name }}
+          {{ item.name }}
         </label>
         <label
           v-else
           :style="labelStyle"
-          :class="{active: !defaultOptions.items.disabled || disabled}"
-          :for="label.name + group"
+          :class="{active: !defaultOptions.config.disabled || disabled}"
+          :for="item.value + group"
           type="radio"
         >
-          {{ label.name }}
+          {{ item.name }}
         </label>
       </li>
     </ul>
@@ -91,13 +91,13 @@ export default {
         padding: 0.5,
         width: 10
       },
-      items: {
+      config: {
         delay: 0.4,
         preSelected: 'unknown',
         disabled: false,
-        labels: [
-          { name: 'Off', color: 'white', backgroundColor: 'red' },
-          { name: 'On', color: 'white', backgroundColor: 'green' }
+        items: [
+          { name: 'Off', value: "0", color: 'white', backgroundColor: 'red' },
+          { name: 'On', value: "1", color: 'white', backgroundColor: 'green' }
         ]
       }
     }
@@ -106,8 +106,8 @@ export default {
     if (this.options !== null && this.options !== undefined) {
       this.mergeDefaultOptionsWithProp(this.options)
     }
-    if (this.defaultOptions.items.preSelected !== 'unknown') {
-      this.selectedItem = this.defaultOptions.items.preSelected
+    if (this.defaultOptions.config.preSelected !== 'unknown') {
+      this.selectedItem = this.defaultOptions.config.preSelected
       this.$emit('input', this.selectedItem)
     } else if (this.value) {
       this.selectedItem = this.value
@@ -144,13 +144,13 @@ export default {
         backgroundColor: this.defaultOptions.layout.backgroundColor,
         color: this.defaultOptions.layout.color,
         fontWeight: this.defaultOptions.layout.fontWeight,
-        transition: s(this.defaultOptions.items.delay)
+        transition: s(this.defaultOptions.config.delay)
       }
     }
   },
   methods: {
     toggle (event) {
-      if (!this.defaultOptions.items.disabled) {
+      if (!this.defaultOptions.config.disabled) {
         this.selected = true
         this.selectedItem = event.target.id.replace(this.group, '')
         this.$emit('selected', this.selected)
@@ -168,7 +168,7 @@ export default {
         fontWeight: this.defaultOptions.layout.fontWeightSelected,
         backgroundColor: backgroundColor !== undefined ? backgroundColor : this.defaultOptions.layout.selectedBackgroundColor,
         color: color !== undefined ? color : this.defaultOptions.layout.selectedColor,
-        transition: s(this.defaultOptions.items.delay)
+        transition: s(this.defaultOptions.config.delay)
       }
     },
     mergeDefaultOptionsWithProp (options) {
