@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v1.3.4
+v2.0.0
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -12,6 +12,7 @@ v1.3.4
 Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
 NB! Version 1.2.32 and later use rem instead of px
+NM! Version 2.0.0 and later use value prop.
 
 ## Setup
 install:
@@ -31,7 +32,7 @@ Use: (in your local .vue file/component, html section)
 
 <toggle-switch
   :options="myOptions"
-  :disabled="false" // optional, can use here on top level or in items section
+  :disabled="false" // optional, can use here on top level or in config section
   @change="updateMap($event.value)" // This is optional
   @selected="selectedMethod()" // This is optional
   v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
@@ -60,13 +61,13 @@ myOptions: {
     padding: 7,
     width: 100
   },
-  items: {
+  config: {
     delay: .4,
     preSelected: 'unknown',
     disabled: false,
-    labels: [
-      {name: 'Off', color: 'white', backgroundColor: 'red'}, 
-      {name: 'On', color: 'white', backgroundColor: 'green'}
+    items: [
+        { name: 'Off', value: 'Off', color: 'white', backgroundColor: 'red' },
+        { name: 'On', value: 'On', color: 'white', backgroundColor: 'green' }
     ]
   }
 }
@@ -78,20 +79,20 @@ myOptions: {
 | ---             | ---               | ---         | ---                                |
 | width           | Number            | 10          | Width of labels |
 | height          | Number            | 3.25        | Height |
-| padding         | Number            | 0.5         | Adjust text location in label with this |
+| padding         | Number            | 0.5         | Adjust text location in item with this |
 | backgroundColor | String            | lightgray   | Background color (not selected) |
 | color           | String            | black       | Text color (not selected)|
 | borderColor     | String            | gray        | border color |
-| selectedColor   | String            | white       | Text color selected label |
-| selectedBackgroundColor | String    | green       | Selected label background color |
-| fontFamily      | String            | Arial       | Font of label text |
+| selectedColor   | String            | white       | Text color selected item |
+| selectedBackgroundColor | String    | green       | Selected item background color |
+| fontFamily      | String            | Arial       | Font of item text |
 | fontWeight      | String            | normal      | Font weight item (not selected) |
 | fontWeightSelected      | String    | bold        | Font weight selected item |
 | fontSize        | Number            | 1.5         | Text size |
 | disabled        | Boolean           | false       | Disable switch |
-| preSelected     | String            | On     | Set (pre) selected label |
-| labels          | Array             | Off/On      | Labels for switch, name property is mandatory|
-| value           | String            | n/a         | Value, ie:  v-model="selectedMapOption"  |
+| preSelected     | String            | On          | Set (pre) selected item |
+| items           | Array             | Off/On      | Items for switch, name and value (string) mandatory |
+| value           | String            | n/a         | Value, ie: v-model="selectedMapOption" |
 | delay           | Number            | .4          | Transition delay between labels is seconds |
 | squareCorners   | Boolean           | false       | Rounded corners of switch |
 | noBorder        | Boolean           | false       | Remove border |

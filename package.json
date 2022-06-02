@@ -1,8 +1,8 @@
 {
   "name": "vuejs-toggle-switch",
   "description": "A toggle switch component for Vue.js",
-  "version": "1.3.4",
-  "author": "LMH, lars@softwarefun.no , softwarefun.no",
+  "version": "2.0.0",
+  "author": "LMH, hejlllars@hotmail.com , softwarefun.no",
   "license": "MIT",
   "homepage": "https://github.com/larsmars/vuejs-toggle-switch#readme",
   "private": false,
