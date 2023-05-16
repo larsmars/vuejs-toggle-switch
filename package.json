@@ -1,18 +1,17 @@
 {
   "name": "vuejs-toggle-switch",
   "description": "A toggle switch component for Vue.js",
-  "version": "3.0.0",
+  "version": "3.0.6",
   "author": "LMH, hejlllars@hotmail.com , softwarefun.no",
   "license": "MIT",
   "homepage": "https://github.com/larsmars/vuejs-toggle-switch#readme",
   "private": false,
   "type": "module",
   "files": [
-    "dist"
+    "dist/*"
   ],
   "main": "./dist/vuejs-toggle-switch.umd.cjs",
   "module": "./dist/vuejs-toggle-switch.js",
-  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/vuejs-toggle-switch.js",
@@ -37,7 +36,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
-    "sass": "^1.62.1",
     "vite": "^4.3.2"
   },
   "keywords": [

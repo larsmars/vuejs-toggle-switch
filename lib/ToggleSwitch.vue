@@ -89,7 +89,7 @@ export default {
       size: {
         fontSize: 1.5,
         height: 3.25,
-        padding: 0.7,
+        padding: 0.5,
         width: 10
       },
       config: {
@@ -199,71 +199,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-ul {
-  list-style: none;
-}
-
-label {
-  margin: 0;
-}
-
-.toggle-switch {
-  padding: 0;
-  margin: 0;
-  display: inline-flex;
-}
-
-.square li:first-child label {
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-}
-.square li:last-child label {
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-}
-
-.toggle-switch li {
-  position:relative;
-}
-
-.toggle-switch li:first-child label {
-  border: 1px solid;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.toggle-switch li:last-child label {
-  border-right: 1px solid;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.toggle-switch label, .toggle-switch input {
-  display:block;
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-}
-
-.toggle-switch input[type="radio"] {
-  opacity:0.01;
-  z-index:100;
-}
-
-.toggle-switch li:not(:first-child):not(:last-child) label {
-  border-right: 1px solid;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-}
-
-.active {
-  cursor: pointer;
-}
-
-</style>

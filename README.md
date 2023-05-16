@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v3.0.0
+v3.0.6
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -8,6 +8,8 @@ v3.0.0
 <br>
 
 <img src="http://softwarefun.no/demo_toggle_switch.png" height="300">
+
+Tested OK v3.0.6 for Vue 3.2.47 16.05.2023 :white_check_mark:
 
 Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
@@ -17,10 +19,9 @@ install:
 npm install vuejs-toggle-switch --save
 ```
 
-Import: (in your main.js)
+Import:
 ```javascript
-import ToggleSwitch from 'vuejs-toggle-switch'
-Vue.use(ToggleSwitch)
+import { ToggleSwitch } from 'vuejs-toggle-switch'
 ```
 ## Usage
 Use: (in your local .vue file/component, html section)

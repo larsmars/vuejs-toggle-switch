@@ -1,5 +1,5 @@
 <script setup>
-import ToggleSwitch from '../lib/ToggleSwitch.vue'
+import { ToggleSwitch } from '../lib/Main.js'
 </script>
 
 <template>
