@@ -14,6 +14,7 @@
           :disabled="defaultOptions.config.disabled || disabled"
           :id="item.value + group" :value="item.value"
           :name="name"
+          :class="{ active: !defaultOptions.config.disabled || disabled}"
           type="radio"
           v-on:click="toggle"
         >
@@ -42,7 +43,6 @@
 </template>
 
 <script>
-const s = x => x + 's'
 const rem = v => v + 'rem'
 
 export default {
@@ -52,7 +52,7 @@ export default {
       type: Object,
       required: false
     },
-    value: {
+    modelValue: {
       type: String,
       required: false
     },
@@ -71,6 +71,7 @@ export default {
       default: false
     }
   },
+  emits: ['update:modelValue'],
   created () {
     this.defaultOptions = {
       layout: {
@@ -88,16 +89,15 @@ export default {
       size: {
         fontSize: 1.5,
         height: 3.25,
-        padding: 0.5,
+        padding: 0.7,
         width: 10
       },
       config: {
-        delay: 0.4,
         preSelected: 'unknown',
         disabled: false,
         items: [
-          { name: 'Off', value: "0", color: 'white', backgroundColor: 'red' },
-          { name: 'On', value: "1", color: 'white', backgroundColor: 'green' }
+          { name: 'Off', value: "Off", color: 'white', backgroundColor: 'red' },
+          { name: 'On', value: "On", color: 'white', backgroundColor: 'green' }
         ]
       }
     }
@@ -108,9 +108,11 @@ export default {
     }
     if (this.defaultOptions.config.preSelected !== 'unknown') {
       this.selectedItem = this.defaultOptions.config.preSelected
+      this.$emit('update:modelValue', this.selectedItem)
       this.$emit('input', this.selectedItem)
-    } else if (this.value) {
-      this.selectedItem = this.value
+    } else if (this.modelValue) {
+      this.selectedItem = this.modelValue
+      this.$emit('update:modelValue', this.selectedItem)
       this.$emit('input', this.selectedItem)
     }
   },
@@ -143,8 +145,7 @@ export default {
         borderColor: this.defaultOptions.layout.noBorder ? 'transparent' : this.defaultOptions.layout.borderColor,
         backgroundColor: this.defaultOptions.layout.backgroundColor,
         color: this.defaultOptions.layout.color,
-        fontWeight: this.defaultOptions.layout.fontWeight,
-        transition: s(this.defaultOptions.config.delay)
+        fontWeight: this.defaultOptions.layout.fontWeight
       }
     }
   },
@@ -154,6 +155,7 @@ export default {
         this.selected = true
         this.selectedItem = event.target.id.replace(this.group, '')
         this.$emit('selected', this.selected)
+        this.$emit('update:modelValue', event.target.id.replace(this.group, ''))
         this.$emit('input', this.selectedItem)
         this.$emit('change', {
           value: event.target.id.replace(this.group, ''),
@@ -167,8 +169,7 @@ export default {
         borderColor: this.defaultOptions.layout.noBorder ? 'transparent' : this.defaultOptions.layout.borderColor,
         fontWeight: this.defaultOptions.layout.fontWeightSelected,
         backgroundColor: backgroundColor !== undefined ? backgroundColor : this.defaultOptions.layout.selectedBackgroundColor,
-        color: color !== undefined ? color : this.defaultOptions.layout.selectedColor,
-        transition: s(this.defaultOptions.config.delay)
+        color: color !== undefined ? color : this.defaultOptions.layout.selectedColor
       }
     },
     mergeDefaultOptionsWithProp (options) {
@@ -187,7 +188,7 @@ export default {
     }
   },
   watch: {
-    value (val) {
+    modelValue (val) {
       this.selectedItem = val
     },
     options (val) {
