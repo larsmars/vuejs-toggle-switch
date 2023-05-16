@@ -1,6 +1,6 @@
 # vuejs-toggle-switch
 Toggle switch for vue.js <br>
-v2.0.0
+v3.0.6
 
 <img src="https://img.shields.io/badge/license-MIT-green.svg" /> <img src="https://img.shields.io/badge/dependencies-0-brightgreen.svg" /> <img src="https://img.shields.io/badge/bugs-0-red.svg" />
 
@@ -9,10 +9,9 @@ v2.0.0
 
 <img src="http://softwarefun.no/demo_toggle_switch.png" height="300">
 
-Do you have questions or want a new feature? Use the "Issues" section :point_left:
+Tested OK v3.0.6 for Vue 3.2.47 16.05.2023 :white_check_mark:
 
-NB! Version 1.2.32 and later use rem instead of px
-NM! Version 2.0.0 and later use value prop.
+Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
 ## Setup
 install:
@@ -20,10 +19,9 @@ install:
 npm install vuejs-toggle-switch --save
 ```
 
-Import: (in your main.js)
+Import:
 ```javascript
-import ToggleSwitch from 'vuejs-toggle-switch'
-Vue.use(ToggleSwitch)
+import { ToggleSwitch } from 'vuejs-toggle-switch'
 ```
 ## Usage
 Use: (in your local .vue file/component, html section)
@@ -36,7 +34,7 @@ Use: (in your local .vue file/component, html section)
   @change="updateMap($event.value)" // This is optional
   @selected="selectedMethod()" // This is optional
   v-model="selectedMapOption" // This is optional 2-way binding (try not to use both 1-way and 2-way)
-  :value="selectedMapOption" // This is optional 1-way binding (try not to use both 1-way and 2-way)
+  :modelValue="selectedMapOption" // This is optional 1-way binding (try not to use both 1-way and 2-way)
   :name="name" // This is optional for input block
   :group="switchGroup" // This is optional, use if multiple toggle-switch on same page with same label names
   /> 
@@ -56,21 +54,20 @@ myOptions: {
     noBorder: false
   },
   size: {
-    fontSize: 14,
-    height: 34,
-    padding: 7,
-    width: 100
+    height: 2,
+    width: 16,
+    padding: 0.4,
+    fontSize: 1
   },
   config: {
-    delay: .4,
-    preSelected: 'unknown',
+    preSelected: 'On',
     disabled: false,
     items: [
         { name: 'Off', value: 'Off', color: 'white', backgroundColor: 'red' },
         { name: 'On', value: 'On', color: 'white', backgroundColor: 'green' }
     ]
   }
-}
+},
 ```
 
 ### Properties
@@ -92,8 +89,7 @@ myOptions: {
 | disabled        | Boolean           | false       | Disable switch |
 | preSelected     | String            | On          | Set (pre) selected item |
 | items           | Array             | Off/On      | Items for switch, name and value (string) mandatory |
-| value           | String            | n/a         | Value, ie: v-model="selectedMapOption" |
-| delay           | Number            | .4          | Transition delay between labels is seconds |
+| modelValue      | String            | n/a         | Value, ie: v-model="selectedMapOption" |
 | squareCorners   | Boolean           | false       | Rounded corners of switch |
 | noBorder        | Boolean           | false       | Remove border |
 | group           | String            | ''          | Switch key/group name (optional) |

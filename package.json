@@ -1,25 +1,28 @@
 {
   "name": "vuejs-toggle-switch",
   "description": "A toggle switch component for Vue.js",
-  "version": "2.0.0",
+  "version": "3.0.6",
   "author": "LMH, hejlllars@hotmail.com , softwarefun.no",
   "license": "MIT",
   "homepage": "https://github.com/larsmars/vuejs-toggle-switch#readme",
   "private": false,
-  "main": "./dist/ToggleSwitch.common.js",
-  "scripts": {
-    "serve": "vue-cli-service serve ./src/main.js",
-    "build": "vue-cli-service build --target lib --name ToggleSwitch src/components/index.js",
-    "version": "npm run build && git add -A",
-    "postversion": "git push -u --follow-tags origin master && npm publish"
+  "type": "module",
+  "files": [
+    "dist/*"
+  ],
+  "main": "./dist/vuejs-toggle-switch.umd.cjs",
+  "module": "./dist/vuejs-toggle-switch.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vuejs-toggle-switch.js",
+      "require": "./dist/vuejs-toggle-switch.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^5.0.4",
-    "@vue/cli-service": "^5.0.4",
-    "node-sass": "7.0.1",
-    "sass-loader": "^13.0.0",
-    "vue": "^2.6.14",
-    "vue-template-compiler": "^2.6.14"
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -28,27 +31,18 @@
   "bugs": {
     "url": "https://github.com/larsmars/vuejs-toggle-switch/issues"
   },
-  "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    "*.js"
-  ],
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
+  "dependencies": {
+    "vue": "^3.2.47"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "vite": "^4.3.2"
+  },
   "keywords": [
     "vuejs",
     "vue.js",
     "toggle",
-    "switch"
+    "switch",
+    "toggle switch"
   ]
 }
