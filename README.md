@@ -11,6 +11,10 @@ v3.0.6
 
 v3.0.6 Tested OK for Vue v3.2.47 16.05.2023 :white_check_mark: <br>
 v2.0.0 [Tested OK](http://softwarefun.no/#/toggleswitch) for Vue v2.6.14 16.05.2023 :white_check_mark:
+<br>
+Support for Vue 2 has ended and will not be continued, previous versions (2.X.X) support Vue 2. Vue 2 will reach End of Life (EOL) on December 31st, 2023.
+[Vue 2 EOL](https://v2.vuejs.org/lts/) Versions after 3.0.0 will only be tested against Vue 3.
+
 
 Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
