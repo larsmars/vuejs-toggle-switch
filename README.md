@@ -16,7 +16,7 @@ Support for Vue 2 has ended and will not be continued, previous versions (2.X.X)
 [Vue 2 EOL](https://v2.vuejs.org/lts/) Versions after 3.0.0 will only be tested against Vue 3.
 
 
-Do you have questions or want a new feature? Use the "Issues" section :point_left:
+Do you have questions or problems? Use the "Issues" section :point_left:
 
 ## Setup
 install:
