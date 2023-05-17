@@ -9,7 +9,8 @@ v3.0.6
 
 <img src="http://softwarefun.no/demo_toggle_switch.png" height="300">
 
-Tested OK v3.0.6 for Vue 3.2.47 16.05.2023 :white_check_mark:
+v3.0.6 Tested OK for Vue 3.2.47 16.05.2023 :white_check_mark:
+v2.0.0 [Tested OK](http://softwarefun.no/#/toggleswitch) for Vue 2.6.14 16.05.2023 :white_check_mark:
 
 Do you have questions or want a new feature? Use the "Issues" section :point_left:
 
