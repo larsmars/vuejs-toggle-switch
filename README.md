@@ -1,4 +1,5 @@
 # vuejs-toggle-switch
+### ⛔️ DEPRECATED: This project is no longer maintained. ⛔️ <br>
 Toggle switch for vue.js <br>
 v3.0.6
 
